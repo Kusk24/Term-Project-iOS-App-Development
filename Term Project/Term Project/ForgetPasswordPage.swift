@@ -12,6 +12,10 @@ class ForgetPasswordPage: UIViewController {
     @IBOutlet weak var Email: UITextField!
     @IBOutlet weak var NewPassword: UITextField!
     @IBOutlet weak var ConfirmNewPassword: UITextField!
+    @IBOutlet weak var UsernameError: UILabel!
+    @IBOutlet weak var EmailError: UIStackView!
+    @IBOutlet weak var NewPasswordError: UILabel!
+    @IBOutlet weak var ConfirmNewPasswordError: UIStackView!
     
     @IBOutlet weak var ConfirmChangesButton: UIButton!
     

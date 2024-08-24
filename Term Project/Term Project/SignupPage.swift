@@ -13,6 +13,10 @@ class SignupPage: UIViewController {
     @IBOutlet weak var Password: UITextField!
     @IBOutlet weak var ConfirmPassword: UITextField!
     @IBOutlet weak var ConfirmButton: UIButton!
+    @IBOutlet weak var UsernameError: UILabel!
+    @IBOutlet weak var EmailError: UILabel!
+    @IBOutlet weak var PasswordError: UILabel!
+    @IBOutlet weak var ConfirmPasswordError: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,6 +11,8 @@ class LoginPage: UIViewController {
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var Password: UITextField!
     @IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var UsernameError: UILabel!
+    @IBOutlet weak var PasswordError: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
