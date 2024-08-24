@@ -8,14 +8,33 @@
 import UIKit
 
 class SignupPage: UIViewController {
-
+    @IBOutlet weak var Username: UITextField!
+    @IBOutlet weak var Email: UITextField!
+    @IBOutlet weak var Password: UITextField!
+    @IBOutlet weak var ConfirmPassword: UITextField!
+    @IBOutlet weak var ConfirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addImage(textField: Username, img: UIImage(systemName: "person.fill")!)
+        addImage(textField: Email, img: UIImage(systemName: "envelope.fill")!)
+        addImage(textField: Password, img: UIImage(systemName: "lock.fill")!)
+        addImage(textField: ConfirmPassword, img: UIImage(systemName: "lock.fill")!)
+        
+        ConfirmButton.layer.cornerRadius = 15
+        ConfirmButton.configuration?.cornerStyle = .capsule
+        ConfirmButton.layer.masksToBounds = true
     }
     
-
+    @IBAction func ConfirmClicked(_ sender: Any) {
+        let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
+        
+        login.modalPresentationStyle = .fullScreen
+        present(login, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
