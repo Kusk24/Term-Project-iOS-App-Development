@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */; };
 		C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A272C79EA32006CABEF /* AppDelegate.swift */; };
 		C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */; };
 		C5FA7A2C2C79EA32006CABEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A2B2C79EA32006CABEF /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functions for UI.swift"; sourceTree = "<group>"; };
 		C5FA7A242C79EA32006CABEF /* Term Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FA7A272C79EA32006CABEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */,
 				C5FA7A2B2C79EA32006CABEF /* ViewController.swift */,
 				C5FA7A2D2C79EA32006CABEF /* Main.storyboard */,
+				C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */,
 				C5FA7A302C79EA33006CABEF /* Assets.xcassets */,
 				C5FA7A322C79EA33006CABEF /* LaunchScreen.storyboard */,
 				C5FA7A352C79EA33006CABEF /* Info.plist */,
@@ -141,6 +144,7 @@
 				C5FA7A2C2C79EA32006CABEF /* ViewController.swift in Sources */,
 				C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
+				C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
