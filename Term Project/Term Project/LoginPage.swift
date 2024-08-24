@@ -13,23 +13,44 @@ class LoginPage: UIViewController {
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var UsernameError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
+    @IBOutlet weak var LoginError: UILabel!
+    private var viewModel: PersonViewModel!
+
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
         addImage(textField: Username, img: UIImage(systemName: "person.fill")!)
         addImage(textField: Password, img: UIImage(systemName: "lock.fill")!)
         LoginButton.layer.cornerRadius = 15
         LoginButton.configuration?.cornerStyle = .capsule
         LoginButton.layer.masksToBounds = true
+        
+
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
-        let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
-        
-        Main.modalPresentationStyle = .popover
-        present(Main, animated: true)
+        viewModel = PersonViewModel()
+        if let username = Username.text, !username.isEmpty,
+           let password = Password.text, !password.isEmpty {
+            if (viewModel.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
+                let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
+                Main.modalPresentationStyle = .fullScreen
+                present(Main, animated: true)
+            }else if ((viewModel.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
+                LoginError.text = "Incorrect Password"
+            } else{
+                LoginError.text = "User Does Not Exist"
+            }
+        } else {
+            if(Username.text!.isEmpty){
+                UsernameError.text = "Username Required!!!"
+            }
+            if(Password.text!.isEmpty){
+                PasswordError.text = "Password Required!!!"
+            }
+        }
     }
     
     @IBAction func SignupClicked(_ sender: Any) {

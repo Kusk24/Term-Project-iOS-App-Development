@@ -8,6 +8,7 @@
 import Foundation
 
 var personIndex : Int!
+var PasswordBoolean: Bool!
 
 class PersonViewModel {
     private let defaults = UserDefaults.standard
@@ -39,15 +40,21 @@ class PersonViewModel {
         }
     }
 
-    // Method to add a new person or update an existing one
     func CheckPerson(Username: String, Passwords: String) -> Bool {
-        if let index = persons.firstIndex(where: { $0.Username == Username && $0.Passwords == Passwords }) {
-            // Person already exists, update the details
-//            persons[index] = Person(Username: Username, Email: persons[index].Email, Passwords: persons[index].Passwords)
-            personIndex = index
-            return true
+        if let index = persons.firstIndex(where: { $0.Username == Username }) {
+            // Person exists, now check if the password matches
+            if persons[index].Passwords == Passwords {
+                personIndex = index
+                PasswordBoolean = true
+                return true
+            } else {
+                // Password is incorrect
+                personIndex = index
+                PasswordBoolean = false
+                return true
+            }
         } else {
-            // Person does not exist, add a new one
+            // Person does not exist
             return false
         }
     }

@@ -17,6 +17,7 @@ class SignupPage: UIViewController {
     @IBOutlet weak var EmailError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var ConfirmPasswordError: UILabel!
+    private var viewModel: PersonViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class SignupPage: UIViewController {
     }
     
     @IBAction func ConfirmClicked(_ sender: Any) {
+        viewModel = PersonViewModel()
+
         let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
         
         login.modalPresentationStyle = .fullScreen
