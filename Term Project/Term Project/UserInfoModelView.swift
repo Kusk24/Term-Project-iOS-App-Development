@@ -59,6 +59,14 @@ class PersonViewModel {
         }
     }
     
+    func CheckUsername(Username: String) -> Bool {
+        if persons.firstIndex(where: {$0.Username == Username}) != nil{
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func updatePerson(at index: Int, with Username: String, Email: String, Passwords: String) {
         guard index < persons.count else { return }
         persons[index] = Person(Username: Username, Email: Email, Passwords: Passwords)

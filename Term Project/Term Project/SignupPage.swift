@@ -17,8 +17,10 @@ class SignupPage: UIViewController {
     @IBOutlet weak var EmailError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var ConfirmPasswordError: UILabel!
-    private var viewModel: PersonViewModel!
+    var MyPassword : String!
     
+    private var viewModel = PersonViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,6 @@ class SignupPage: UIViewController {
     }
     
     @IBAction func ConfirmClicked(_ sender: Any) {
-        viewModel = PersonViewModel()
 
         let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
         
@@ -51,5 +52,67 @@ class SignupPage: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func UsernameEditingChanged(_ sender: Any) {
+        if let currentInput = Username.text {
+            if currentInput.count < 4{
+                UsernameError.textColor = .systemRed
+                UsernameError.text = "Username must be at least 4 Characters"
+            } else {
+                UsernameError.text = ""
+                if viewModel.CheckUsername(Username: currentInput){
+                    UsernameError.textColor = .systemRed
+                    UsernameError.text = "Username Unavailable"
+                } else {
+                    UsernameError.textColor = .systemGreen
+                    UsernameError.text = "Username Available"
+                }
+            }
+        } 
+        
+    }
+    
+    @IBAction func EmailEditingChanged(_ sender: Any) {
+        if let currentInput = Email.text {
+            if currentInput.contains("@") && currentInput.contains("."){
+                EmailError.text = ""
+            } else {
+                EmailError.text = "wrong email address"
+            }
+        }
+    }
 
+    @IBAction func PasswordEditingChanged(_ sender: Any) {
+        if let currentInput = Password.text {
+            if currentInput.count < 8 {
+                PasswordError.textColor = .systemRed
+                PasswordError.text = "Passwords must be at least 8 characters"
+            } else {
+                let specialCharacterSet = CharacterSet.punctuationCharacters
+                let uppercaseLetterSet = CharacterSet.uppercaseLetters
+                let lowercaseLetterSet = CharacterSet.lowercaseLetters
+                
+                if currentInput.rangeOfCharacter(from: specialCharacterSet) != nil &&
+                   currentInput.rangeOfCharacter(from: uppercaseLetterSet) != nil &&
+                   currentInput.rangeOfCharacter(from: lowercaseLetterSet) != nil {
+                    PasswordError.text = ""
+                    MyPassword = Password.text
+                } else {
+                    PasswordError.text = "Must include a special character, uppercase, and lowercase"
+                }
+            }
+        }
+    }
+    
+    @IBAction func ConfirmPasswordEditingChanged(_ sender: Any) {
+        if let currentInput = ConfirmPassword.text {
+            if currentInput == MyPassword{
+                ConfirmPasswordError.textColor = .systemGreen
+                ConfirmPasswordError.text = "Password Matched"
+            } else {
+                ConfirmPasswordError.textColor = .systemRed
+                ConfirmPasswordError.text = "Password does not match"
+            }
+        }
+    }
+    
 }

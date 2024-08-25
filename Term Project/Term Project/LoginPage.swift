@@ -14,7 +14,7 @@ class LoginPage: UIViewController {
     @IBOutlet weak var UsernameError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var LoginError: UILabel!
-    private var viewModel: PersonViewModel!
+    private var viewModel = PersonViewModel()
 
     
     override func viewDidLoad() {
@@ -31,7 +31,6 @@ class LoginPage: UIViewController {
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
-        viewModel = PersonViewModel()
         if let username = Username.text, !username.isEmpty,
            let password = Password.text, !password.isEmpty {
             if (viewModel.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
@@ -41,7 +40,7 @@ class LoginPage: UIViewController {
             }else if ((viewModel.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
                 LoginError.text = "Incorrect Password"
             } else{
-                LoginError.text = "User Does Not Exist"
+                LoginError.text = "User Does Not Exist. Please Sign up"
             }
         } else {
             if(Username.text!.isEmpty){
@@ -78,15 +77,6 @@ class LoginPage: UIViewController {
         }
     }
     
-    @IBAction func PasswordEditingChanged(_ sender: Any) {
-        if let currentInput = Password.text{
-            if currentInput.count < 8 {
-                PasswordError.text = "Passwords must be at least 8 Characters"
-            } else {
-                PasswordError.text = ""
-            }
-        }
-    }
     
 }
 
