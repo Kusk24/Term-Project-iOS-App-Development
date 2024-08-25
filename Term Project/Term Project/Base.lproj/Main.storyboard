@@ -72,7 +72,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
-                                                            <action selector="PasswordEditingChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qcd-xl-6XN"/>
+                                                            <action selector="PasswordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="rpa-KG-BLf"/>
                                                         </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WK5-kQ-vwG">
