@@ -68,5 +68,25 @@ class LoginPage: UIViewController {
         present(Forget, animated: true)
     }
     
+    @IBAction func UsernameEditingChanged(_ sender: Any) {
+        if let currentInput = Username.text{
+            if currentInput.count < 4 {
+                UsernameError.text = "Username must be at least 4 Characters"
+            } else {
+                UsernameError.text = ""
+            }
+        }
+    }
+    
+    @IBAction func PasswordEditingChanged(_ sender: Any) {
+        if let currentInput = Password.text{
+            if currentInput.count < 8 {
+                PasswordError.text = "Passwords must be at least 8 Characters"
+            } else {
+                PasswordError.text = ""
+            }
+        }
+    }
+    
 }
 
