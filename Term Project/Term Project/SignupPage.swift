@@ -17,9 +17,13 @@ class SignupPage: UIViewController {
     @IBOutlet weak var EmailError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var ConfirmPasswordError: UILabel!
-    var MyPassword : String!
+    @IBOutlet weak var SignupError: UILabel!
+    var CorrectUsername = false
+    var CorrectPassword = false
+    var CorrectEmail = false
+    var CorrectConfirmPassword = false
     
-    private var viewModel = PersonViewModel()
+    var MyPassword : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +40,16 @@ class SignupPage: UIViewController {
     }
     
     @IBAction func ConfirmClicked(_ sender: Any) {
+        if (CorrectUsername && CorrectPassword && CorrectEmail && CorrectConfirmPassword) {
+            UserInfo.addPerson(Username: Username.text!, Email: Email.text!, Passwords: Password.text!)
+            let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
+                    
+            login.modalPresentationStyle = .fullScreen
+            present(login, animated: true)
+        } else {
+            SignupError.text = "Something Wrong,Please Check Your Information"
+        }
 
-        let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
-        
-        login.modalPresentationStyle = .fullScreen
-        present(login, animated: true)
     }
     
     /*
@@ -57,26 +66,30 @@ class SignupPage: UIViewController {
             if currentInput.count < 4{
                 UsernameError.textColor = .systemRed
                 UsernameError.text = "Username must be at least 4 Characters"
+                CorrectUsername = false
             } else {
                 UsernameError.text = ""
-                if viewModel.CheckUsername(Username: currentInput){
+                if UserInfo.CheckUsername(Username: currentInput){
                     UsernameError.textColor = .systemRed
                     UsernameError.text = "Username Unavailable"
+                    CorrectUsername = false
                 } else {
                     UsernameError.textColor = .systemGreen
                     UsernameError.text = "Username Available"
+                    CorrectUsername = true
                 }
             }
         } 
-        
     }
     
     @IBAction func EmailEditingChanged(_ sender: Any) {
         if let currentInput = Email.text {
             if currentInput.contains("@") && currentInput.contains("."){
                 EmailError.text = ""
+                CorrectEmail = true
             } else {
                 EmailError.text = "wrong email address"
+                CorrectEmail = false
             }
         }
     }
@@ -86,6 +99,7 @@ class SignupPage: UIViewController {
             if currentInput.count < 8 {
                 PasswordError.textColor = .systemRed
                 PasswordError.text = "Passwords must be at least 8 characters"
+                CorrectPassword = false
             } else {
                 let specialCharacterSet = CharacterSet.punctuationCharacters
                 let uppercaseLetterSet = CharacterSet.uppercaseLetters
@@ -96,8 +110,10 @@ class SignupPage: UIViewController {
                    currentInput.rangeOfCharacter(from: lowercaseLetterSet) != nil {
                     PasswordError.text = ""
                     MyPassword = Password.text
+                    CorrectPassword = true
                 } else {
                     PasswordError.text = "Must include a special character, uppercase, and lowercase"
+                    CorrectPassword = false
                 }
             }
         }
@@ -108,9 +124,11 @@ class SignupPage: UIViewController {
             if currentInput == MyPassword{
                 ConfirmPasswordError.textColor = .systemGreen
                 ConfirmPasswordError.text = "Password Matched"
+                CorrectConfirmPassword = true
             } else {
                 ConfirmPasswordError.textColor = .systemRed
                 ConfirmPasswordError.text = "Password does not match"
+                CorrectConfirmPassword = true
             }
         }
     }

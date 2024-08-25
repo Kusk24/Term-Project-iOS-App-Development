@@ -14,7 +14,6 @@ class LoginPage: UIViewController {
     @IBOutlet weak var UsernameError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var LoginError: UILabel!
-    private var viewModel = PersonViewModel()
 
     
     override func viewDidLoad() {
@@ -33,11 +32,11 @@ class LoginPage: UIViewController {
     @IBAction func LoginClicked(_ sender: Any) {
         if let username = Username.text, !username.isEmpty,
            let password = Password.text, !password.isEmpty {
-            if (viewModel.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
+            if (UserInfo.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
                 let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
                 Main.modalPresentationStyle = .fullScreen
                 present(Main, animated: true)
-            }else if ((viewModel.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
+            }else if ((UserInfo.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
                 LoginError.text = "Incorrect Password"
             } else{
                 LoginError.text = "User Does Not Exist. Please Sign up"
