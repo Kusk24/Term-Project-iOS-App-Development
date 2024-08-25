@@ -77,6 +77,16 @@ class LoginPage: UIViewController {
         }
     }
     
+    @IBAction func PasswordEditingChanged(_ sender: Any) {
+        if let currentInput = Password.text{
+            if currentInput.count < 8 {
+                PasswordError.text = "Passwords must be at least 8 Characters"
+            } else {
+                PasswordError.text = ""
+            }
+        }
+
+    }
     
 }
 
