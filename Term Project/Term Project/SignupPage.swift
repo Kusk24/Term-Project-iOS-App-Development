@@ -47,7 +47,7 @@ class SignupPage: UIViewController {
             login.modalPresentationStyle = .fullScreen
             present(login, animated: true)
         } else {
-            SignupError.text = "Something Wrong,Please Check Your Information"
+            SignupError.text = "Incorrect information, Please recheck"
         }
 
     }
