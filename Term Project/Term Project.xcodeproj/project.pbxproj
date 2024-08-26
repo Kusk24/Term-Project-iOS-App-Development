@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BC06C532C7D3F5F0050A7F5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1BC06C522C7D3F5F0050A7F5 /* KeychainAccess */; };
 		C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */; };
 		C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */; };
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC06C532C7D3F5F0050A7F5 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +103,9 @@
 			dependencies = (
 			);
 			name = "Term Project";
+			packageProductDependencies = (
+				1BC06C522C7D3F5F0050A7F5 /* KeychainAccess */,
+			);
 			productName = "Term Project";
 			productReference = C5FA7A242C79EA32006CABEF /* Term Project.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +134,9 @@
 				Base,
 			);
 			mainGroup = C5FA7A1B2C79EA32006CABEF;
+			packageReferences = (
+				1BC06C512C7D3F5F0050A7F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = C5FA7A252C79EA32006CABEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +395,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BC06C512C7D3F5F0050A7F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BC06C522C7D3F5F0050A7F5 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BC06C512C7D3F5F0050A7F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C5FA7A1C2C79EA32006CABEF /* Project object */;
 }

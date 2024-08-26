@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class LoginPage: UIViewController {
     @IBOutlet weak var Username: UITextField!
@@ -32,24 +33,60 @@ class LoginPage: UIViewController {
     @IBAction func LoginClicked(_ sender: Any) {
         if let username = Username.text, !username.isEmpty,
            let password = Password.text, !password.isEmpty {
-            if (UserInfo.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
-                let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
-                Main.modalPresentationStyle = .fullScreen
-                present(Main, animated: true)
-            }else if ((UserInfo.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
-                LoginError.text = "Incorrect Password"
-            } else{
-                LoginError.text = "User Does Not Exist. Please Sign up"
+            
+            let keychain = Keychain(service: "com.612054.Term-Project")
+                        
+            do {
+                if let storedPassword = try keychain.get(Username.text!) {
+                    
+                    // Debugging: Print to verify what's being retrieved
+                    print("Retrieved from Keychain: Username - \(username), Stored Password - \(storedPassword)")
+
+                    if storedPassword == password {
+                        let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
+                        Main.modalPresentationStyle = .fullScreen
+                        present(Main, animated: true)
+                    } else {
+                        LoginError.text = "Incorrect Password"
+                    }
+                } else {
+                    LoginError.text = "User Does Not Exist. Please Sign up"
+                }
+            } catch let error {
+                LoginError.text = "Failed to retrieve credentials: \(error)"
+                print("Keychain retrieval error: \(error)")
             }
+            
         } else {
-            if(Username.text!.isEmpty){
+            if Username.text!.isEmpty {
                 UsernameError.text = "Username Required!!!"
             }
-            if(Password.text!.isEmpty){
+            if Password.text!.isEmpty {
                 PasswordError.text = "Password Required!!!"
             }
         }
     }
+
+            
+            
+//            if (UserInfo.CheckPerson(Username: username, Passwords: password) && PasswordBoolean) {
+//                let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
+//                Main.modalPresentationStyle = .fullScreen
+//                present(Main, animated: true)
+//            }else if ((UserInfo.CheckPerson(Username: username, Passwords: password) && !PasswordBoolean)){
+//                LoginError.text = "Incorrect Password"
+//            } else{
+//                LoginError.text = "User Does Not Exist. Please Sign up"
+//            }
+//        } else {
+//            if(Username.text!.isEmpty){
+//                UsernameError.text = "Username Required!!!"
+//            }
+//            if(Password.text!.isEmpty){
+//                PasswordError.text = "Password Required!!!"
+//            }
+//        }
+//    }
     
     @IBAction func SignupClicked(_ sender: Any) {
         let signup = storyboard?.instantiateViewController(withIdentifier: "Signup") as! SignupPage
