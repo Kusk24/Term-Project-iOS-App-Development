@@ -27,7 +27,11 @@ class LoginPage: UIViewController {
         LoginButton.configuration?.cornerStyle = .capsule
         LoginButton.layer.masksToBounds = true
         
-
+        // for Password Mask
+        Password.isSecureTextEntry = true
+        // Optional: Customize the font and text color of the password field
+        Password.font = UIFont.systemFont(ofSize: 18)
+        Password.textColor = UIColor.black
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
