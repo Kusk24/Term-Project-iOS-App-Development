@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fKH-AU-o0x">
-                                <rect key="frame" x="16" y="194" width="361" height="464"/>
+                                <rect key="frame" x="16" y="168" width="361" height="516.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hK7-Bg-0Wb">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="70.333333333333329"/>
@@ -89,7 +89,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="7QW-4B-Psg">
-                                        <rect key="frame" x="0.0" y="298.33333333333331" width="361" height="165.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="298.33333333333331" width="361" height="217.99999999999994"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGd-UU-bim">
                                                 <rect key="frame" x="114.66666666666666" y="0.0" width="132" height="28.333333333333332"/>
@@ -125,8 +125,18 @@
                                                     <action selector="LoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MlA-9J-ZKC"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9v-cz-I4p">
+                                                <rect key="frame" x="104" y="134.66666666666669" width="153" height="34.333333333333343"/>
+                                                <color key="backgroundColor" red="0.83137255909999996" green="0.40000003579999999" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign in WIth SSO"/>
+                                                <connections>
+                                                    <action selector="SigninSSOClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MVs-PS-wPn"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-02-npq">
-                                                <rect key="frame" x="74.333333333333329" y="134.66666666666669" width="212.33333333333337" height="31"/>
+                                                <rect key="frame" x="74.333333333333329" y="187.00000000000006" width="212.33333333333337" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XF-Fc-4MJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="136.33333333333334" height="31"/>
@@ -174,6 +184,7 @@
                         <outlet property="LoginError" destination="YtJ-hJ-aIx" id="DTE-YO-5pv"/>
                         <outlet property="Password" destination="uFo-Kg-yu6" id="eVR-o7-DlU"/>
                         <outlet property="PasswordError" destination="WK5-kQ-vwG" id="Khk-lU-AWo"/>
+                        <outlet property="SigninSSOButton" destination="Y9v-cz-I4p" id="ZII-8r-Ruv"/>
                         <outlet property="Username" destination="28u-6m-o5C" id="Q5i-dy-sHK"/>
                         <outlet property="UsernameError" destination="tli-zc-d3j" id="8sB-Ty-sSW"/>
                     </connections>
@@ -377,6 +388,62 @@
             </objects>
             <point key="canvasLocation" x="647" y="4"/>
         </scene>
+        <!--SigninSSO Page-->
+        <scene sceneID="HWe-8z-NAD">
+            <objects>
+                <viewController storyboardIdentifier="SigninSSO" id="Dos-OQ-OiA" customClass="SigninSSOPage" customModule="Term_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IT8-3m-Z2j">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="97" translatesAutoresizingMaskIntoConstraints="NO" id="FVw-rR-A8a">
+                                <rect key="frame" x="101.66666666666669" y="269" width="190" height="314"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCA-9I-WS2">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+                                        <color key="backgroundColor" red="0.92549020049999997" green="0.40392160420000001" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="YWh-zf-SMl"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Sign in with Google"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAM-yD-ulF">
+                                        <rect key="frame" x="0.0" y="137" width="190" height="40"/>
+                                        <color key="backgroundColor" red="0.92549020049999997" green="0.40392160420000001" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6Iv-Qh-qGf"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Sign in with Facebook"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL9-GW-YoB">
+                                        <rect key="frame" x="0.0" y="274" width="190" height="40"/>
+                                        <color key="backgroundColor" red="0.92549020049999997" green="0.40392160420000001" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="yH1-bZ-40q"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Sign in with Apple"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XKS-Fu-L5K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FVw-rR-A8a" firstAttribute="centerY" secondItem="IT8-3m-Z2j" secondAttribute="centerY" id="J0a-iP-Gcg"/>
+                            <constraint firstItem="FVw-rR-A8a" firstAttribute="centerX" secondItem="IT8-3m-Z2j" secondAttribute="centerX" id="wAM-Wm-KZJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0j-6Q-4uZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-118.32061068702289" y="-677.46478873239437"/>
+        </scene>
         <!--Signup Page-->
         <scene sceneID="UnD-8w-XT2">
             <objects>
@@ -570,7 +637,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -15,7 +15,7 @@ class LoginPage: UIViewController {
     @IBOutlet weak var UsernameError: UILabel!
     @IBOutlet weak var PasswordError: UILabel!
     @IBOutlet weak var LoginError: UILabel!
-
+    @IBOutlet weak var SigninSSOButton: UIButton!
     
     override func viewDidLoad() {
         
@@ -26,6 +26,10 @@ class LoginPage: UIViewController {
         LoginButton.layer.cornerRadius = 15
         LoginButton.configuration?.cornerStyle = .capsule
         LoginButton.layer.masksToBounds = true
+        
+        SigninSSOButton.layer.cornerRadius = 15
+        SigninSSOButton.configuration?.cornerStyle = .capsule
+        SigninSSOButton.layer.masksToBounds = true
         
         // for Password Mask
         Password.isSecureTextEntry = true
@@ -126,6 +130,13 @@ class LoginPage: UIViewController {
             }
         }
 
+    }
+    
+    @IBAction func SigninSSOClicked(_ sender: Any) {
+        let SigninSSO = storyboard?.instantiateViewController(identifier: "SigninSSO") as! SigninSSOPage
+        
+        SigninSSO.modalPresentationStyle = .popover
+        present(SigninSSO, animated: true)
     }
     
 }
