@@ -10,11 +10,11 @@
 		C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */; };
 		C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */; };
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
-		C5C756052C7A2CA000E7E701 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756042C7A2CA000E7E701 /* MainPage.swift */; };
 		C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756062C7A667C00E7E701 /* UserInfoModel.swift */; };
 		C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */; };
 		C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C5E9CD3B2C80F36C00C6139B /* KeychainAccess */; };
 		C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */; };
+		C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */; };
 		C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A272C79EA32006CABEF /* AppDelegate.swift */; };
 		C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */; };
 		C5FA7A2C2C79EA32006CABEF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A2B2C79EA32006CABEF /* LoginPage.swift */; };
@@ -27,10 +27,10 @@
 		C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functions for UI.swift"; sourceTree = "<group>"; };
 		C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		C5C756022C7A2AA800E7E701 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
-		C5C756042C7A2CA000E7E701 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		C5C756062C7A667C00E7E701 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModelView.swift; sourceTree = "<group>"; };
 		C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSSOPage.swift; sourceTree = "<group>"; };
+		C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPage.swift; sourceTree = "<group>"; };
 		C5FA7A242C79EA32006CABEF /* Term Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FA7A272C79EA32006CABEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 				C5FA7A2B2C79EA32006CABEF /* LoginPage.swift */,
 				C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */,
 				C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */,
-				C5C756042C7A2CA000E7E701 /* MainPage.swift */,
 				C5C756022C7A2AA800E7E701 /* SignupPage.swift */,
+				C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */,
 				C5FA7A2D2C79EA32006CABEF /* Main.storyboard */,
 				C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */,
 				C5FA7A302C79EA33006CABEF /* Assets.xcassets */,
@@ -173,9 +173,9 @@
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
 				C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
+				C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */,
 				C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */,
 				C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */,
-				C5C756052C7A2CA000E7E701 /* MainPage.swift in Sources */,
 				C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

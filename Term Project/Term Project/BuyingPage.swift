@@ -1,13 +1,13 @@
 //
-//  MainPage.swift
+//  BuyingPage.swift
 //  Term Project
 //
-//  Created by Win Yu Maung on 24/08/2024.
+//  Created by Win Yu Maung on 30/08/2024.
 //
 
 import UIKit
 
-class MainPage: UIViewController {
+class BuyingPage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

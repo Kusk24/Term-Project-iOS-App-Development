@@ -36,6 +36,7 @@ class LoginPage: UIViewController {
         // Optional: Customize the font and text color of the password field
         Password.font = UIFont.systemFont(ofSize: 18)
         Password.textColor = UIColor.black
+        
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
@@ -51,7 +52,7 @@ class LoginPage: UIViewController {
                     print("Retrieved from Keychain: Username - \(username), Stored Password - \(storedPassword)")
 
                     if storedPassword == password {
-                        let Main = storyboard?.instantiateViewController(withIdentifier: "Main") as! MainPage
+                        let Main = storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as! UITabBarController
                         Main.modalPresentationStyle = .fullScreen
                         present(Main, animated: true)
                     } else {
