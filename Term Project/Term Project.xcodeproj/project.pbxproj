@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */; };
+		C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */; };
+		C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */; };
 		C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */; };
 		C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */; };
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellOne.swift; sourceTree = "<group>"; };
+		C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellTwo.swift; sourceTree = "<group>"; };
+		C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellThree.swift; sourceTree = "<group>"; };
 		C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functions for UI.swift"; sourceTree = "<group>"; };
 		C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		C5C756022C7A2AA800E7E701 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
@@ -53,6 +59,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */,
+				C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */,
+				C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */,
+			);
+			path = BuyingTableView;
+			sourceTree = "<group>";
+		};
 		C5FA7A1B2C79EA32006CABEF = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +95,7 @@
 				C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */,
 				C5C756022C7A2AA800E7E701 /* SignupPage.swift */,
 				C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */,
+				C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */,
 				C5FA7A2D2C79EA32006CABEF /* Main.storyboard */,
 				C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */,
 				C5FA7A302C79EA33006CABEF /* Assets.xcassets */,
@@ -170,12 +187,15 @@
 				C5FA7A2C2C79EA32006CABEF /* LoginPage.swift in Sources */,
 				C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */,
 				C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */,
+				C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */,
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
 				C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
+				C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */,
 				C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */,
 				C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */,
 				C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */,
+				C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */,
 				C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

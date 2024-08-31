@@ -37,6 +37,9 @@ class LoginPage: UIViewController {
         Password.font = UIFont.systemFont(ofSize: 18)
         Password.textColor = UIColor.black
         
+        print(Keychain(service: "com.612054.Term-Project"))
+        print(UserInfo.persons)
+        
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
