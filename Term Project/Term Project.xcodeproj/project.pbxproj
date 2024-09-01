@@ -18,6 +18,11 @@
 		C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C5E9CD3B2C80F36C00C6139B /* KeychainAccess */; };
 		C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */; };
 		C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */; };
+		C5EBE3FD2C844DFE003EAD18 /* AccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */; };
+		C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */; };
+		C5EBE4032C8456DA003EAD18 /* BookingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBE4022C8456DA003EAD18 /* BookingPage.swift */; };
+		C5EBE4052C845715003EAD18 /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBE4042C845715003EAD18 /* SearchPage.swift */; };
+		C5EBE4072C845737003EAD18 /* FavoritePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBE4062C845737003EAD18 /* FavoritePage.swift */; };
 		C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A272C79EA32006CABEF /* AppDelegate.swift */; };
 		C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */; };
 		C5FA7A2C2C79EA32006CABEF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA7A2B2C79EA32006CABEF /* LoginPage.swift */; };
@@ -37,6 +42,11 @@
 		C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModelView.swift; sourceTree = "<group>"; };
 		C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSSOPage.swift; sourceTree = "<group>"; };
 		C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPage.swift; sourceTree = "<group>"; };
+		C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPage.swift; sourceTree = "<group>"; };
+		C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPage.swift; sourceTree = "<group>"; };
+		C5EBE4022C8456DA003EAD18 /* BookingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPage.swift; sourceTree = "<group>"; };
+		C5EBE4042C845715003EAD18 /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
+		C5EBE4062C845737003EAD18 /* FavoritePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePage.swift; sourceTree = "<group>"; };
 		C5FA7A242C79EA32006CABEF /* Term Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FA7A272C79EA32006CABEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,11 +72,36 @@
 		C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */ = {
 			isa = PBXGroup;
 			children = (
+				C5EBE4022C8456DA003EAD18 /* BookingPage.swift */,
 				C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */,
 				C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */,
 				C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */,
 			);
 			path = BuyingTableView;
+			sourceTree = "<group>";
+		};
+		C5EBE4002C845685003EAD18 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA7A2B2C79EA32006CABEF /* LoginPage.swift */,
+				C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */,
+				C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */,
+				C5C756022C7A2AA800E7E701 /* SignupPage.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C5EBE4012C8456AA003EAD18 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */,
+				C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */,
+				C5EBE4042C845715003EAD18 /* SearchPage.swift */,
+				C5EBE4062C845737003EAD18 /* FavoritePage.swift */,
+				C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */,
+				C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C5FA7A1B2C79EA32006CABEF = {
@@ -90,12 +125,8 @@
 			children = (
 				C5FA7A272C79EA32006CABEF /* AppDelegate.swift */,
 				C5FA7A292C79EA32006CABEF /* SceneDelegate.swift */,
-				C5FA7A2B2C79EA32006CABEF /* LoginPage.swift */,
-				C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */,
-				C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */,
-				C5C756022C7A2AA800E7E701 /* SignupPage.swift */,
-				C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */,
-				C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */,
+				C5EBE4002C845685003EAD18 /* Login */,
+				C5EBE4012C8456AA003EAD18 /* Main */,
 				C5FA7A2D2C79EA32006CABEF /* Main.storyboard */,
 				C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */,
 				C5FA7A302C79EA33006CABEF /* Assets.xcassets */,
@@ -186,12 +217,17 @@
 			files = (
 				C5FA7A2C2C79EA32006CABEF /* LoginPage.swift in Sources */,
 				C5FA7A282C79EA32006CABEF /* AppDelegate.swift in Sources */,
+				C5EBE4032C8456DA003EAD18 /* BookingPage.swift in Sources */,
+				C5EBE3FD2C844DFE003EAD18 /* AccountPage.swift in Sources */,
+				C5EBE4072C845737003EAD18 /* FavoritePage.swift in Sources */,
 				C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */,
 				C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */,
+				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
 				C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
 				C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */,
+				C5EBE4052C845715003EAD18 /* SearchPage.swift in Sources */,
 				C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */,
 				C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */,
 				C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */,
