@@ -7,11 +7,30 @@
 
 import UIKit
 
-class SupportPage: UIViewController {
+class SupportPage: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SupportTableCell") as! SupportTableCell
+        
+        if indexPath.row == 0{
+            cell.imageView?.image = UIImage(systemName: "person.fill")
+        } else {
+            cell.imageView?.image = UIImage(systemName: "heart.fill")
+        }
+        return cell
+    }
+    
 
+    @IBOutlet weak var SupportTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        SupportTable.dataSource = self
+        SupportTable.delegate = self
         // Do any additional setup after loading the view.
     }
     

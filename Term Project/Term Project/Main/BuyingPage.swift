@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -31,16 +32,16 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 200
+            return 275
         case 1:
-            return 200
+            return 275
         case 2:
-            return 150
+            return 200
         default:
             return UITableView.automaticDimension
         }
     }
-
+    
     @IBOutlet weak var BuyingTable: UITableView!
     
     override func viewDidLoad() {
@@ -49,17 +50,9 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Do any additional setup after loading the view.
         BuyingTable.delegate = self
         BuyingTable.dataSource = self
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

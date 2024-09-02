@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C538E4A62C862DF700946051 /* CollectionCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C538E4A52C862DF700946051 /* CollectionCellTwo.swift */; };
+		C538E4AA2C86317300946051 /* CollectionCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C538E4A92C86317300946051 /* CollectionCellThree.swift */; };
+		C538E4AD2C8634AB00946051 /* SupportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C538E4AC2C8634AB00946051 /* SupportTableCell.swift */; };
 		C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */; };
 		C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */; };
 		C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */; };
@@ -15,6 +18,8 @@
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
 		C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756062C7A667C00E7E701 /* UserInfoModel.swift */; };
 		C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */; };
+		C5D781092C8584E60099E5F9 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D781082C8584E60099E5F9 /* DetailPage.swift */; };
+		C5D7810D2C85F5B40099E5F9 /* CollectionCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D7810C2C85F5B40099E5F9 /* CollectionCellOne.swift */; };
 		C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C5E9CD3B2C80F36C00C6139B /* KeychainAccess */; };
 		C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */; };
 		C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */; };
@@ -32,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C538E4A52C862DF700946051 /* CollectionCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellTwo.swift; sourceTree = "<group>"; };
+		C538E4A92C86317300946051 /* CollectionCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellThree.swift; sourceTree = "<group>"; };
+		C538E4AC2C8634AB00946051 /* SupportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTableCell.swift; sourceTree = "<group>"; };
 		C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellOne.swift; sourceTree = "<group>"; };
 		C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellTwo.swift; sourceTree = "<group>"; };
 		C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellThree.swift; sourceTree = "<group>"; };
@@ -40,6 +48,8 @@
 		C5C756022C7A2AA800E7E701 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
 		C5C756062C7A667C00E7E701 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModelView.swift; sourceTree = "<group>"; };
+		C5D781082C8584E60099E5F9 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
+		C5D7810C2C85F5B40099E5F9 /* CollectionCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellOne.swift; sourceTree = "<group>"; };
 		C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSSOPage.swift; sourceTree = "<group>"; };
 		C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPage.swift; sourceTree = "<group>"; };
 		C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPage.swift; sourceTree = "<group>"; };
@@ -69,13 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C538E4AB2C86347C00946051 /* SupportTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C538E4AC2C8634AB00946051 /* SupportTableCell.swift */,
+			);
+			path = SupportTableView;
+			sourceTree = "<group>";
+		};
 		C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				C5EBE4022C8456DA003EAD18 /* BookingPage.swift */,
 				C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */,
 				C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */,
 				C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */,
+				C5D7810C2C85F5B40099E5F9 /* CollectionCellOne.swift */,
+				C538E4A52C862DF700946051 /* CollectionCellTwo.swift */,
+				C538E4A92C86317300946051 /* CollectionCellThree.swift */,
 			);
 			path = BuyingTableView;
 			sourceTree = "<group>";
@@ -96,9 +116,11 @@
 			children = (
 				C5E9CD3F2C81B8C200C6139B /* BuyingPage.swift */,
 				C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */,
+				C5EBE4022C8456DA003EAD18 /* BookingPage.swift */,
 				C5EBE4042C845715003EAD18 /* SearchPage.swift */,
 				C5EBE4062C845737003EAD18 /* FavoritePage.swift */,
 				C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */,
+				C538E4AB2C86347C00946051 /* SupportTableView */,
 				C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */,
 			);
 			path = Main;
@@ -134,6 +156,7 @@
 				C5FA7A352C79EA33006CABEF /* Info.plist */,
 				C5C756062C7A667C00E7E701 /* UserInfoModel.swift */,
 				C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */,
+				C5D781082C8584E60099E5F9 /* DetailPage.swift */,
 			);
 			path = "Term Project";
 			sourceTree = "<group>";
@@ -221,14 +244,19 @@
 				C5EBE3FD2C844DFE003EAD18 /* AccountPage.swift in Sources */,
 				C5EBE4072C845737003EAD18 /* FavoritePage.swift in Sources */,
 				C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */,
+				C5D781092C8584E60099E5F9 /* DetailPage.swift in Sources */,
 				C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */,
+				C538E4AA2C86317300946051 /* CollectionCellThree.swift in Sources */,
 				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
 				C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
+				C5D7810D2C85F5B40099E5F9 /* CollectionCellOne.swift in Sources */,
 				C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */,
 				C5EBE4052C845715003EAD18 /* SearchPage.swift in Sources */,
 				C5E9CD402C81B8C200C6139B /* BuyingPage.swift in Sources */,
+				C538E4AD2C8634AB00946051 /* SupportTableCell.swift in Sources */,
+				C538E4A62C862DF700946051 /* CollectionCellTwo.swift in Sources */,
 				C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */,
 				C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */,
 				C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */,
