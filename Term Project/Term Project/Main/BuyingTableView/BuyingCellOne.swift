@@ -13,27 +13,43 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let IndexPath = indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCellOne", for: indexPath ) as! CollectionCellOne
         
         
-
+        cell.Brand.text = cars[IndexPath].brand
+        cell.Model.text = cars[IndexPath].model
+        cell.Price.text = String(cars[IndexPath].price)
+        cell.Year.text = String(cars[IndexPath].year)
+        //cell.Myimage.image = cars[IndexPath].image
+        
+        
             // Configure border and corner radius
 //            cell.contentView.layer.borderColor = UIColor.black.cgColor
 //            cell.contentView.layer.borderWidth = 2.0
 //            cell.contentView.layer.cornerRadius = 8.0
             
-            return cell
+        return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let viewController = self.findViewController() {
+            let Detail = viewController.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
+            Detail.modalPresentationStyle = .fullScreen
+            viewController.present(Detail, animated: true)
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var Detail: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         collectionView.dataSource = self
         collectionView.delegate = self
+        
         
         
 //        contentView.layer.shadowColor = UIColor.black.cgColor

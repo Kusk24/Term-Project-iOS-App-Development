@@ -53,6 +53,7 @@ class SignupPage: UIViewController {
                 // Debugging: Print to verify what's being stored
                 print("Saved to Keychain: Username -\(Username.text!), Email -\(Email.text!), Password -\(Password.text!)")
                 
+                // Under sentence is related to userdefault
                 UserInfo.addPerson(Username: Username.text!, Email: Email.text!, Passwords: Password.text!)
                 let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
                 

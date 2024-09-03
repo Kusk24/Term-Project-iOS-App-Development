@@ -7,12 +7,32 @@
 
 import UIKit
 
-class SearchPage: UIViewController {
+class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cars.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let IndexPath = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Search") as! SearchTableCell
+        
+//        cell.Myimage.image =
+        cell.Brand.text = cars[IndexPath].brand
+        cell.Price.text = String(cars[IndexPath].price)
+        cell.Model.text = cars[IndexPath].model
+        cell.Year.text = String(cars[IndexPath].year)
+        return cell
+    }
+    
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
     }
     
 

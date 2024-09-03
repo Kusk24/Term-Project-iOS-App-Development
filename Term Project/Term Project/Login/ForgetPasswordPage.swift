@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class ForgetPasswordPage: UIViewController {
     @IBOutlet weak var Username: UITextField!
@@ -17,6 +18,7 @@ class ForgetPasswordPage: UIViewController {
     @IBOutlet weak var NewPasswordError: UILabel!
     @IBOutlet weak var ConfirmNewPasswordError: UILabel!
     @IBOutlet weak var ConfirmChangesButton: UIButton!
+    
     var MyPassword : String!
     
     override func viewDidLoad() {
@@ -40,6 +42,30 @@ class ForgetPasswordPage: UIViewController {
         
         login.modalPresentationStyle = .fullScreen
         present(login , animated: true)
+        
+//        if CorrectPassword && CorrectConfirmPassword {
+//                let keychain = Keychain(service: "com.612054.Term-Project")
+//                
+//                do {
+//                    // Update the password in Keychain using the existing username
+//                    try keychain.set(Password.text!, key: Username.text!)
+//                    
+//                    // Debugging: Print to verify the password update
+//                    print("Updated in Keychain: Username -\(Username.text!), New Password -\(Password.text!)")
+//                    
+//                    // Optionally, update the password in UserDefaults too, if applicable
+//                    UserInfo.updatePassword(Username: Username.text!, NewPassword: Password.text!)
+//                    
+//                    let login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
+//                    login.modalPresentationStyle = .fullScreen
+//                    present(login, animated: true)
+//                } catch let error {
+//                    SignupError.text = "Failed to update password: \(error)"
+//                    print("Keychain update error: \(error)")
+//                }
+//            } else {
+//                SignupError.text = "Incorrect information, Please recheck"
+//            }
     }
     
     

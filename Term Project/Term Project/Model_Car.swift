@@ -1,0 +1,36 @@
+//
+//  Model_Car.swift
+//  Term Project
+//
+//  Created by Win Yu Maung on 03/09/2024.
+//
+
+import Foundation
+
+struct CarsResponse: Codable {
+    let cars: [Car]
+
+    enum CodingKeys: String, CodingKey {
+        case cars = "Cars"
+    }
+}
+
+struct Car: Codable {
+    let brand: String
+    let model: String
+    let year: Int
+    let image: String
+    let video: String
+    let price: Int
+    let location: String
+
+    enum CodingKeys: String, CodingKey {
+        case brand = "Brand"
+        case model = "Model"
+        case year = "Year"
+        case image = "Image"
+        case video = "Video"
+        case price = "Price"
+        case location = "Location"
+    }
+}

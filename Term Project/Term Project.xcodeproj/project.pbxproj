@@ -18,6 +18,12 @@
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
 		C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756062C7A667C00E7E701 /* UserInfoModel.swift */; };
 		C5C756092C7A66A500E7E701 /* UserInfoModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */; };
+		C5D39EB62C86E9230052FC2B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C5D39EB52C86E9230052FC2B /* Alamofire */; };
+		C5D39EBA2C86EB7D0052FC2B /* Model_Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */; };
+		C5D39EBC2C86EC020052FC2B /* Global_Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D39EBB2C86EC020052FC2B /* Global_Variables.swift */; };
+		C5D39EBE2C8731D60052FC2B /* OurShopPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D39EBD2C8731D60052FC2B /* OurShopPage.swift */; };
+		C5D39EC02C874D820052FC2B /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D39EBF2C874D820052FC2B /* ExtensionFile.swift */; };
+		C5D39EC22C874E690052FC2B /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D39EC12C874E690052FC2B /* SearchTableCell.swift */; };
 		C5D781092C8584E60099E5F9 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D781082C8584E60099E5F9 /* DetailPage.swift */; };
 		C5D7810D2C85F5B40099E5F9 /* CollectionCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D7810C2C85F5B40099E5F9 /* CollectionCellOne.swift */; };
 		C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C5E9CD3B2C80F36C00C6139B /* KeychainAccess */; };
@@ -48,6 +54,11 @@
 		C5C756022C7A2AA800E7E701 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
 		C5C756062C7A667C00E7E701 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModelView.swift; sourceTree = "<group>"; };
+		C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model_Car.swift; sourceTree = "<group>"; };
+		C5D39EBB2C86EC020052FC2B /* Global_Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global_Variables.swift; sourceTree = "<group>"; };
+		C5D39EBD2C8731D60052FC2B /* OurShopPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurShopPage.swift; sourceTree = "<group>"; };
+		C5D39EBF2C874D820052FC2B /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		C5D39EC12C874E690052FC2B /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		C5D781082C8584E60099E5F9 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
 		C5D7810C2C85F5B40099E5F9 /* CollectionCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellOne.swift; sourceTree = "<group>"; };
 		C5E9CD3D2C80FAEF00C6139B /* SigninSSOPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSSOPage.swift; sourceTree = "<group>"; };
@@ -73,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */,
+				C5D39EB62C86E9230052FC2B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +112,14 @@
 			path = BuyingTableView;
 			sourceTree = "<group>";
 		};
+		C5D39EC32C874E7B0052FC2B /* SearchTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5D39EC12C874E690052FC2B /* SearchTableCell.swift */,
+			);
+			path = SearchTableView;
+			sourceTree = "<group>";
+		};
 		C5EBE4002C845685003EAD18 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +138,12 @@
 				C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */,
 				C5EBE4022C8456DA003EAD18 /* BookingPage.swift */,
 				C5EBE4042C845715003EAD18 /* SearchPage.swift */,
+				C5D39EC32C874E7B0052FC2B /* SearchTableView */,
 				C5EBE4062C845737003EAD18 /* FavoritePage.swift */,
 				C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */,
 				C538E4AB2C86347C00946051 /* SupportTableView */,
 				C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */,
+				C5D39EBD2C8731D60052FC2B /* OurShopPage.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -157,6 +179,9 @@
 				C5C756062C7A667C00E7E701 /* UserInfoModel.swift */,
 				C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */,
 				C5D781082C8584E60099E5F9 /* DetailPage.swift */,
+				C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */,
+				C5D39EBB2C86EC020052FC2B /* Global_Variables.swift */,
+				C5D39EBF2C874D820052FC2B /* ExtensionFile.swift */,
 			);
 			path = "Term Project";
 			sourceTree = "<group>";
@@ -179,6 +204,7 @@
 			name = "Term Project";
 			packageProductDependencies = (
 				C5E9CD3B2C80F36C00C6139B /* KeychainAccess */,
+				C5D39EB52C86E9230052FC2B /* Alamofire */,
 			);
 			productName = "Term Project";
 			productReference = C5FA7A242C79EA32006CABEF /* Term Project.app */;
@@ -210,6 +236,7 @@
 			mainGroup = C5FA7A1B2C79EA32006CABEF;
 			packageReferences = (
 				C5E9CD3A2C80F36C00C6139B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = C5FA7A252C79EA32006CABEF /* Products */;
 			projectDirPath = "";
@@ -246,9 +273,12 @@
 				C5C756072C7A667C00E7E701 /* UserInfoModel.swift in Sources */,
 				C5D781092C8584E60099E5F9 /* DetailPage.swift in Sources */,
 				C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */,
+				C5D39EBA2C86EB7D0052FC2B /* Model_Car.swift in Sources */,
 				C538E4AA2C86317300946051 /* CollectionCellThree.swift in Sources */,
+				C5D39EC22C874E690052FC2B /* SearchTableCell.swift in Sources */,
 				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
+				C5D39EC02C874D820052FC2B /* ExtensionFile.swift in Sources */,
 				C5E9CD3E2C80FAEF00C6139B /* SigninSSOPage.swift in Sources */,
 				C5FA7A2A2C79EA32006CABEF /* SceneDelegate.swift in Sources */,
 				C5D7810D2C85F5B40099E5F9 /* CollectionCellOne.swift in Sources */,
@@ -261,6 +291,8 @@
 				C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */,
 				C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */,
 				C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */,
+				C5D39EBC2C86EC020052FC2B /* Global_Variables.swift in Sources */,
+				C5D39EBE2C8731D60052FC2B /* OurShopPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +517,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		C5E9CD3A2C80F36C00C6139B /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -496,6 +536,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C5D39EB52C86E9230052FC2B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		C5E9CD3B2C80F36C00C6139B /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C5E9CD3A2C80F36C00C6139B /* XCRemoteSwiftPackageReference "KeychainAccess" */;

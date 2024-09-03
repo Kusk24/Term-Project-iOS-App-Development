@@ -14,3 +14,4 @@ func addImage(textField : UITextField, img : UIImage){
     textField.leftView = imageView
     textField.leftViewMode = .always
 }
+
