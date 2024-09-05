@@ -48,6 +48,7 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     */
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         FavoriteTable.reloadData()
     }
     
@@ -66,4 +67,6 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Reload the collection view data (optional: only reload affected item)
         FavoriteTable.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)
     }
+    
+
 }

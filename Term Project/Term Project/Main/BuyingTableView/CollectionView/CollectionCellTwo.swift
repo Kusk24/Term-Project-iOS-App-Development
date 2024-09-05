@@ -16,6 +16,4 @@ class CollectionCellTwo: UICollectionViewCell {
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var FavoriteButton: UIButton!
     
-    
-    
 }

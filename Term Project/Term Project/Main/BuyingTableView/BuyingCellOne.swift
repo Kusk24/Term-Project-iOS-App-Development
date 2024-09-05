@@ -8,6 +8,30 @@
 import UIKit
 
 class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+//        contentView.layer.shadowColor = UIColor.black.cgColor
+//        contentView.layer.shadowOpacity = 0.3
+//        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        contentView.layer.shadowRadius = 4
+//
+//        // Ensure the shadow is applied correctly
+//        contentView.layer.masksToBounds = false
+    }
+    
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
@@ -44,32 +68,6 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         }
     }
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-//        contentView.layer.shadowColor = UIColor.black.cgColor
-//        contentView.layer.shadowOpacity = 0.3
-//        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        contentView.layer.shadowRadius = 4
-//
-//        // Ensure the shadow is applied correctly
-//        contentView.layer.masksToBounds = false
-    }
-    
-    
-    
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     @objc func FavoriteButtonTapped(_ sender: UIButton) {
         let carIndex = sender.tag
         let car = cars[carIndex]
@@ -87,5 +85,5 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         // Reload the collection view data (optional: only reload affected item)
         collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])
     }
-
+    
 }

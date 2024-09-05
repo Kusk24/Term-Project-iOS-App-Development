@@ -14,6 +14,7 @@ class SearchTableCell: UITableViewCell {
     @IBOutlet var Model: UILabel!
     @IBOutlet var Price: UILabel!
     @IBOutlet var Year: UILabel!
+    @IBOutlet weak var FavoriteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

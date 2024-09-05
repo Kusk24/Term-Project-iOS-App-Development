@@ -104,7 +104,7 @@
                                                     <action selector="ForgetPasswordClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0iV-dU-2EX"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-hJ-aIx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-hJ-aIx">
                                                 <rect key="frame" x="50.666666666666686" y="46.333333333333314" width="260" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="9Xw-eY-4sD"/>
@@ -462,6 +462,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="Brand" destination="rz7-Jy-Kai" id="IwI-Gv-MuV"/>
+                                                    <outlet property="FavoriteButton" destination="vkP-Pn-gJr" id="MWy-oi-6VZ"/>
                                                     <outlet property="Model" destination="pMD-Z4-67V" id="0H9-wa-T4e"/>
                                                     <outlet property="Myimage" destination="tNr-ie-BJC" id="LYr-By-O5C"/>
                                                     <outlet property="Price" destination="Kjq-Vk-YmN" id="Hik-HN-gSp"/>
@@ -1215,7 +1216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48J-kg-O7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5127.480916030534" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="4201" y="-27"/>
         </scene>
         <!--Support-->
         <scene sceneID="VOM-EF-VZC">
@@ -1661,7 +1662,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIg-fQ-lNz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483.2061068702287" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1550" y="-27"/>
         </scene>
         <!--Rent-->
         <scene sceneID="bEp-PJ-w6Y">
@@ -1775,7 +1776,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozt-Y8-VRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3988.5496183206105" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3062" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fsM-KM-yvt">
