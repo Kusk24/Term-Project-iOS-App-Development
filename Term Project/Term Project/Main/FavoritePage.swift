@@ -7,12 +7,34 @@
 
 import UIKit
 
-class FavoritePage: UIViewController {
-
+class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getFavorites().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let i = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell") as! FavoriteTableCell
+        
+        cell.Brand.text = getFavorites()[i].brand
+        cell.Model.text = getFavorites()[i].model
+        cell.Year.text = String(getFavorites()[i].year)
+        cell.Price.text = String(getFavorites()[i].price)
+        checkFavorite(myButton: cell.FavoriteButton, mycar: getFavorites()[i])
+        cell.FavoriteButton.tag = i
+        cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
+        
+        return cell
+    }
+    
+    @IBOutlet weak var FavoriteTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        FavoriteTable.dataSource = self
+        FavoriteTable.delegate = self
     }
     
 
@@ -25,5 +47,23 @@ class FavoritePage: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func viewWillAppear(_ animated: Bool) {
+        FavoriteTable.reloadData()
+    }
+    
+    @objc func FavoriteButtonTapped(_ sender: UIButton) {
+        let carIndex = sender.tag
+        let car = cars[carIndex]
+        
+        // Toggle the favorite status
+        if isFavorite(car: car) {
+            removeFavorite(mycar: car)
+        }
+        
+        // Update the button's appearance
+        checkFavorite(myButton: sender, mycar: car)
+        FavoriteTable.reloadData()
+        // Reload the collection view data (optional: only reload affected item)
+        FavoriteTable.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)
+    }
 }

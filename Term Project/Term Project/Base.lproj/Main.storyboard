@@ -753,6 +753,7 @@
                                                                     <size key="customSize" width="200" height="200"/>
                                                                     <connections>
                                                                         <outlet property="Brand" destination="4oe-XS-tMj" id="g22-Bv-boa"/>
+                                                                        <outlet property="FavoriteButton" destination="WzP-TW-K8Y" id="hn2-b3-iSI"/>
                                                                         <outlet property="Model" destination="arV-r0-g8w" id="72H-xg-ApX"/>
                                                                         <outlet property="Myimage" destination="GPs-h1-PV2" id="Woa-YS-QbN"/>
                                                                         <outlet property="Price" destination="E8H-HV-9Ez" id="cvM-Iq-7uU"/>
@@ -894,6 +895,7 @@
                                                                     <size key="customSize" width="200" height="200"/>
                                                                     <connections>
                                                                         <outlet property="Brand" destination="6u6-Uh-lK6" id="bcz-vn-zCP"/>
+                                                                        <outlet property="FavoriteButton" destination="QF9-qp-ZyL" id="Yug-Id-R7r"/>
                                                                         <outlet property="Model" destination="XXt-aS-bU3" id="2K0-2e-Dye"/>
                                                                         <outlet property="Myimage" destination="DlG-mN-rYx" id="0fP-XJ-2JT"/>
                                                                         <outlet property="Price" destination="VAH-5B-0mH" id="Wne-Rc-tLd"/>
@@ -1298,7 +1300,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="179" id="6FP-3I-jpe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteTableCell" rowHeight="179" id="6FP-3I-jpe" customClass="FavoriteTableCell" customModule="Term_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="179"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6FP-3I-jpe" id="3ec-tO-MJa">
@@ -1330,16 +1332,16 @@
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWl-No-U6e">
-                                                                    <rect key="frame" x="0.0" y="62.333333333333336" width="178" height="20.333333333333336"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" systemColor="systemGreenColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL7-U2-erI">
-                                                                    <rect key="frame" x="0.0" y="91.666666666666657" width="178" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="62.333333333333343" width="178" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWl-No-U6e">
+                                                                    <rect key="frame" x="0.0" y="89.333333333333343" width="178" height="20.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" systemColor="systemGreenColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -1365,6 +1367,14 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="PNZ-vO-jWn" secondAttribute="trailing" id="Rqy-aH-usT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Brand" destination="apH-nS-k5J" id="snI-b7-fXT"/>
+                                            <outlet property="FavoriteButton" destination="nlp-mb-eaJ" id="oxJ-ny-Ie4"/>
+                                            <outlet property="Model" destination="28w-EU-rew" id="cTC-MV-UWh"/>
+                                            <outlet property="MyImage" destination="PNZ-vO-jWn" id="SLO-ZB-Dmt"/>
+                                            <outlet property="Price" destination="HWl-No-U6e" id="aq7-NU-DS9"/>
+                                            <outlet property="Year" destination="bL7-U2-erI" id="uDS-5v-dtD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1379,6 +1389,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Favorite List" id="aH7-Kb-Svn"/>
+                    <connections>
+                        <outlet property="FavoriteTable" destination="51P-Fr-xeo" id="dkd-VR-t5P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOC-FB-BY3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

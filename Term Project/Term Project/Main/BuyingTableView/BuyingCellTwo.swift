@@ -13,14 +13,19 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let IndexPath = [cars.count-1, cars.count-2, cars.count-3, cars.count-4, cars.count-5]
+        let reverseIndex = cars.count - 1 - indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCellTwo", for: indexPath) as! CollectionCellTwo
-        
-        cell.Brand.text = cars[IndexPath[indexPath.item]].brand
-        cell.Model.text = cars[IndexPath[indexPath.item]].model
-        cell.Price.text = String(cars[IndexPath[indexPath.item]].price)
-        cell.Year.text = String(cars[IndexPath[indexPath.item]].year)
-        //cell.Myimage.image = cars[IndexPath[indexPath.item]].image
+                
+        let car = cars[reverseIndex]
+        cell.Brand.text = car.brand
+        cell.Model.text = car.model
+        cell.Price.text = String(car.price)
+        cell.Year.text = String(car.year)
+        // cell.Myimage.image = car.image
+                
+        checkFavorite(myButton: cell.FavoriteButton, mycar: car)
+        cell.FavoriteButton.tag = reverseIndex
+        cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -42,4 +47,22 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         // Configure the view for the selected state
     }
 
+    @objc func FavoriteButtonTapped(_ sender: UIButton) {
+        let carIndex = sender.tag
+        let car = cars[carIndex]
+
+        // Toggle the favorite status
+        if isFavorite(car: car) {
+            removeFavorite(mycar: car)
+        } else {
+            addFavorite(mycar: car)
+        }
+        
+        // Update the button's appearance
+        checkFavorite(myButton: sender, mycar: car)
+        
+        // Reload the collection view data (optional: only reload affected item)
+        collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])
+    }
+    
 }

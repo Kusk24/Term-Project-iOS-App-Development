@@ -35,7 +35,7 @@ class LoginPage: UIViewController {
         // for Password Mask
         Password.isSecureTextEntry = true
         // Optional: Customize the font and text color of the password field
-        Password.font = UIFont.systemFont(ofSize: 18)
+//        Password.font = UIFont.systemFont(ofSize: 18)
         Password.textColor = UIColor.black
         
 //        print(Keychain(service: "com.612054.Term-Project"))

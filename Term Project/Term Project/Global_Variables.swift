@@ -8,3 +8,4 @@
 import Foundation
 
 var cars:[Car] = []
+//var favCars:[Car] = []

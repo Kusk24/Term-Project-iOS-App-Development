@@ -57,6 +57,10 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         BuyingTable.reloadData()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        BuyingTable.reloadData()
+    }
 }
 
 

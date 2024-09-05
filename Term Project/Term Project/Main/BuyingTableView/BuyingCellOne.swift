@@ -22,6 +22,10 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         cell.Model.text = cars[IndexPath].model
         cell.Price.text = String(cars[IndexPath].price)
         cell.Year.text = String(cars[IndexPath].year)
+        checkFavorite(myButton: cell.FavoriteButton, mycar: cars[IndexPath])
+        cell.FavoriteButton.tag = indexPath.item
+        cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
+        
         //cell.Myimage.image = cars[IndexPath].image
         
         
@@ -50,8 +54,6 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        
-        
 //        contentView.layer.shadowColor = UIColor.black.cgColor
 //        contentView.layer.shadowOpacity = 0.3
 //        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -66,6 +68,24 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func FavoriteButtonTapped(_ sender: UIButton) {
+        let carIndex = sender.tag
+        let car = cars[carIndex]
+        
+        // Toggle the favorite status
+        if isFavorite(car: car) {
+            removeFavorite(mycar: car)
+        } else {
+            addFavorite(mycar: car)
+        }
+        
+        // Update the button's appearance
+        checkFavorite(myButton: sender, mycar: car)
+        
+        // Reload the collection view data (optional: only reload affected item)
+        collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])
     }
 
 }
