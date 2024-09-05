@@ -40,13 +40,11 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let viewController = self.findViewController() {
             let Detail = viewController.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
-            Detail.modalPresentationStyle = .fullScreen
-            viewController.present(Detail, animated: true)
+            viewController.navigationController?.pushViewController(Detail, animated: true)
         }
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var Detail: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,8 +59,10 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
 //
 //        // Ensure the shadow is applied correctly
 //        contentView.layer.masksToBounds = false
-        
     }
+    
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

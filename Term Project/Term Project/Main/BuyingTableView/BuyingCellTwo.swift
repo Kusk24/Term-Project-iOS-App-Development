@@ -30,9 +30,14 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let viewController = self.findViewController() {
+            let Detail = viewController.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
+            viewController.navigationController?.pushViewController(Detail, animated: true)
+        }
+    }
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var Detail: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +46,7 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         collectionView.delegate = self
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

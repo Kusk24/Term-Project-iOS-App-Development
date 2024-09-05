@@ -18,11 +18,9 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BuyingCellOne") as! BuyingCellOne
-            cell.Detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BuyingCellTwo") as! BuyingCellTwo
-            cell.Detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BuyingCellThree") as! BuyingCellThree

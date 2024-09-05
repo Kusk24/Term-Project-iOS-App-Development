@@ -114,17 +114,12 @@ class LoginPage: UIViewController {
     
     @IBAction func SignupClicked(_ sender: Any) {
         let signup = storyboard?.instantiateViewController(withIdentifier: "Signup") as! SignupPage
-        
-        
-        signup.modalPresentationStyle = .popover
-        present(signup, animated: true)
+        navigationController?.pushViewController(signup, animated: true)
     }
     
     @IBAction func ForgetPasswordClicked(_ sender: Any) {
         let Forget = storyboard?.instantiateViewController(withIdentifier: "ForgetPassword") as! ForgetPasswordPage
-        
-        Forget.modalPresentationStyle = .popover
-        present(Forget, animated: true)
+           navigationController?.pushViewController(Forget, animated: true)
     }
     
     @IBAction func UsernameEditingChanged(_ sender: Any) {
@@ -150,9 +145,7 @@ class LoginPage: UIViewController {
     
     @IBAction func SigninSSOClicked(_ sender: Any) {
         let SigninSSO = storyboard?.instantiateViewController(identifier: "SigninSSO") as! SigninSSOPage
-        
-        SigninSSO.modalPresentationStyle = .popover
-        present(SigninSSO, animated: true)
+            navigationController?.pushViewController(SigninSSO, animated: true)
     }
     
 }
