@@ -53,7 +53,7 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     @objc func FavoriteButtonTapped(_ sender: UIButton) {
         let carIndex = sender.tag
-        let car = cars[carIndex]
+        let car = getFavorites()[carIndex]
         
         // Toggle the favorite status
         if isFavorite(car: car) {
