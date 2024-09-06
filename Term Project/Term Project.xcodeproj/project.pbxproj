@@ -15,6 +15,7 @@
 		C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */; };
 		C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */; };
 		C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */; };
+		C5B23CD92C8B821B001844FC /* AccountTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B23CD82C8B821B001844FC /* AccountTableCell.swift */; };
 		C5C68DFF2C7A0EF300C90154 /* Functions for UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */; };
 		C5C756012C7A2A9000E7E701 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */; };
 		C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C756022C7A2AA800E7E701 /* SignupPage.swift */; };
@@ -53,6 +54,7 @@
 		C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellOne.swift; sourceTree = "<group>"; };
 		C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellTwo.swift; sourceTree = "<group>"; };
 		C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellThree.swift; sourceTree = "<group>"; };
+		C5B23CD82C8B821B001844FC /* AccountTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableCell.swift; sourceTree = "<group>"; };
 		C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functions for UI.swift"; sourceTree = "<group>"; };
 		C5C756002C7A2A9000E7E701 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		C5C756022C7A2AA800E7E701 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = BuyingTableView;
 			sourceTree = "<group>";
 		};
+		C5B23CD72C8B820B001844FC /* AccountTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5B23CD82C8B821B001844FC /* AccountTableCell.swift */,
+			);
+			path = AccountTableView;
+			sourceTree = "<group>";
+		};
 		C5D39EC32C874E7B0052FC2B /* SearchTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 				C5EBE3FE2C844FA3003EAD18 /* SupportPage.swift */,
 				C538E4AB2C86347C00946051 /* SupportTableView */,
 				C5EBE3FC2C844DFE003EAD18 /* AccountPage.swift */,
+				C5B23CD72C8B820B001844FC /* AccountTableView */,
 				C5D39EBD2C8731D60052FC2B /* OurShopPage.swift */,
 				C5D781082C8584E60099E5F9 /* DetailPage.swift */,
 			);
@@ -297,6 +308,7 @@
 				C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */,
 				C5D39EBA2C86EB7D0052FC2B /* Model_Car.swift in Sources */,
 				C538E4AA2C86317300946051 /* CollectionCellThree.swift in Sources */,
+				C5B23CD92C8B821B001844FC /* AccountTableCell.swift in Sources */,
 				C54557FA2C898D4A0011A105 /* FavoriteTableCell.swift in Sources */,
 				C5D39EC22C874E690052FC2B /* SearchTableCell.swift in Sources */,
 				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,
