@@ -13,51 +13,84 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-    }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
+        // Set up quick actions when the app launches
         setupQuickActions()
-    }
-    
-    // Method to handle quick actions when the app is already running
-    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        if shortcutItem.type == "com.612054.search" {
-            // Navigate to the search page
-            completionHandler(true)
-        } else if shortcutItem.type == "com.612054.favorites" {
-            // Navigate to the favorites page
-            completionHandler(true)
-        } else {
-            completionHandler(false)
+
+        // Handle the quick action if the app was launched by one
+        if let shortcutItem = connectionOptions.shortcutItem {
+            handleQuickAction(shortcutItem: shortcutItem)
         }
     }
 
-    // Method to set up quick actions for the app
-    func setupQuickActions() {
-        let searchAction = UIApplicationShortcutItem(type: "com.yourapp.search", localizedTitle: "Search", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .search), userInfo: nil)
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let handled = handleQuickAction(shortcutItem: shortcutItem)
+        completionHandler(handled)
+    }
+
+    func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        var handled = false
+
+        if shortcutItem.type == "com.612054.Term-Project.search" {
+            navigateToSearchPage()
+            handled = true
+        } else if shortcutItem.type == "com.612054.Term-Project.favorites" {
+            navigateToFavoritesPage()
+            handled = true
+        } else {
+            print("Unhandled quick action type: \(shortcutItem.type)")
+        }
         
-        let favoritesAction = UIApplicationShortcutItem(type: "com.yourapp.favorites", localizedTitle: "Favorites", localizedSubtitle: "View your favorite cars", icon: UIApplicationShortcutIcon(type: .favorite), userInfo: nil)
+        return handled
+    }
+
+    func setupQuickActions() {
+        let searchAction = UIApplicationShortcutItem(type: "com.612054.Term-Project.search",
+                                                     localizedTitle: "Search",
+                                                     localizedSubtitle: nil,
+                                                     icon: UIApplicationShortcutIcon(type: .search),
+                                                     userInfo: nil)
+        
+        let favoritesAction = UIApplicationShortcutItem(type: "com.612054.Term-Project.favorites",
+                                                        localizedTitle: "Favorites",
+                                                        localizedSubtitle: "View your favorite cars",
+                                                        icon: UIApplicationShortcutIcon(type: .favorite),
+                                                        userInfo: nil)
         
         UIApplication.shared.shortcutItems = [searchAction, favoritesAction]
     }
 
+    func navigateToSearchPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+        
+        if let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage {
+            if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.pushViewController(searchVC, animated: true)
+            } else {
+                window?.rootViewController?.present(searchVC, animated: true, completion: nil)
+            }
+        } else {
+            print("Error: Could not instantiate SearchPage from Main storyboard")
+        }
+    }
+
+    func navigateToFavoritesPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+        
+        if let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage {
+            if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.pushViewController(favoritesVC, animated: true)
+            } else {
+                window?.rootViewController?.present(favoritesVC, animated: true, completion: nil)
+            }
+        } else {
+            print("Error: Could not instantiate FavoritePage from Main storyboard")
+        }
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        setupQuickActions()
+    }
 }
+
 
