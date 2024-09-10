@@ -41,17 +41,17 @@ class LoginPage: UIViewController {
 //        print(Keychain(service: "com.612054.Term-Project"))
 //        print(UserInfo.persons)
         
-        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
-
-        AF.request(url).responseDecodable(of: CarsResponse.self) { data in
-            switch data.result {
-            case .success(let carResponse):
-                cars = carResponse.cars
-                print(cars)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+//
+//        AF.request(url).responseDecodable(of: CarsResponse.self) { data in
+//            switch data.result {
+//            case .success(let carResponse):
+//                cars = carResponse.cars
+//                print(cars)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
