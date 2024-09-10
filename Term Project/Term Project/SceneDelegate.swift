@@ -37,7 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if shortcutItem.type == "com.612054.Term-Project.favorites" {
             navigateToFavoritesPage()
             handled = true
-        } else {
+        } else if shortcutItem.type == "com.612054.Term-Project.booking" {
+            navigateToBookingPage()
+            handled = true
+        }else {
             print("Unhandled quick action type: \(shortcutItem.type)")
         }
         
@@ -57,7 +60,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                         icon: UIApplicationShortcutIcon(type: .favorite),
                                                         userInfo: nil)
         
-        UIApplication.shared.shortcutItems = [searchAction, favoritesAction]
+        let bookingAction = UIApplicationShortcutItem(type: "com.612054.Term-Project.booking",
+                                                        localizedTitle: "Booking",
+                                                        localizedSubtitle: "View your booking history",
+                                                        icon: UIApplicationShortcutIcon(type: .bookmark),
+                                                        userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [searchAction, favoritesAction, bookingAction]
     }
 
     func navigateToSearchPage() {
@@ -85,6 +94,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         } else {
             print("Error: Could not instantiate FavoritePage from Main storyboard")
+        }
+    }
+    
+    func navigateToBookingPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+        
+        if let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage {
+            if let navigationController = window?.rootViewController as? UINavigationController {
+                navigationController.pushViewController(bookingVC, animated: true)
+            } else {
+                window?.rootViewController?.present(bookingVC, animated: true, completion: nil)
+            }
+        } else {
+            print("Error: Could not instantiate BookingPage from Main storyboard")
         }
     }
 
