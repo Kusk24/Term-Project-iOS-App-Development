@@ -110,3 +110,6 @@ func loadCurrentUser() -> (isLoggedIn: Bool, username: String?) {
     return (false, nil) // Return default value if no data is found
 }
 
+func unsaveCurrentUser(){
+    saveCurrentUser(isLoggedIn: false, username: "")
+}

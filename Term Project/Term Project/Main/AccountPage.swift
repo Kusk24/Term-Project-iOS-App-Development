@@ -34,23 +34,30 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
 
     @IBOutlet weak var AccountTable: UITableView!
+    @IBOutlet weak var UserName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         AccountTable.dataSource = self
         AccountTable.delegate = self
         // Do any additional setup after loading the view.
+        let userDict = UserDefaults.standard.dictionary(forKey: "CurrentUser")
+        if let username = userDict?["username"] as? String {
+            UserName.text = username
+        } else {
+            UserName.text = "" // Provide a default value if username is nil
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func logOutClicked(_ sender: Any) {
+        unsaveCurrentUser()
+        let Login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
+        
+        Login.modalPresentationStyle = .fullScreen
+        present(Login, animated: true)
+        
     }
-    */
+    
 
 }

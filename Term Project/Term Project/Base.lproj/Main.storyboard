@@ -572,7 +572,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndP-4h-xtV">
-                                <rect key="frame" x="0.0" y="417.66666666666674" width="393" height="351.33333333333326"/>
+                                <rect key="frame" x="0.0" y="415.66666666666674" width="393" height="254"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountTableCell" id="k1w-7d-FfC" customClass="AccountTableCell" customModule="Term_Project" customModuleProvider="target">
@@ -585,8 +585,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="NCr-Fo-8ps">
-                                <rect key="frame" x="121" y="165" width="150" height="192"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NCr-Fo-8ps">
+                                <rect key="frame" x="121" y="165" width="150" height="190"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8s7-Rm-CNr">
                                         <rect key="frame" x="0.0" y="2" width="150" height="146.66666666666666"/>
@@ -596,25 +596,41 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geH-35-r0N">
-                                        <rect key="frame" x="0.0" y="172" width="150" height="20"/>
+                                        <rect key="frame" x="0.0" y="160" width="150" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="OkT-Cg-YBx"/>
+                                            <constraint firstAttribute="height" constant="30" id="OkT-Cg-YBx"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRq-aO-8A0">
+                                <rect key="frame" x="146.66666666666666" y="708.33333333333337" width="100" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOutClicked:" destination="mQa-01-H0b" eventType="touchUpInside" id="v0r-CN-qvC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c1b-rR-P5G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NCr-Fo-8ps" firstAttribute="top" secondItem="c1b-rR-P5G" secondAttribute="top" constant="62" id="0xC-7e-kA0"/>
                             <constraint firstItem="c1b-rR-P5G" firstAttribute="trailing" secondItem="ndP-4h-xtV" secondAttribute="trailing" id="1Vj-p4-sZe"/>
-                            <constraint firstItem="c1b-rR-P5G" firstAttribute="bottom" secondItem="ndP-4h-xtV" secondAttribute="bottom" id="LmJ-cc-tLV"/>
+                            <constraint firstItem="c1b-rR-P5G" firstAttribute="trailing" secondItem="oRq-aO-8A0" secondAttribute="trailing" constant="146.5" id="6b0-Hk-wbg"/>
+                            <constraint firstItem="c1b-rR-P5G" firstAttribute="bottom" secondItem="oRq-aO-8A0" secondAttribute="bottom" constant="26.5" id="IGb-X7-ZBg"/>
                             <constraint firstItem="c1b-rR-P5G" firstAttribute="trailing" secondItem="NCr-Fo-8ps" secondAttribute="trailing" constant="122" id="U7L-4k-H00"/>
+                            <constraint firstItem="oRq-aO-8A0" firstAttribute="leading" secondItem="c1b-rR-P5G" secondAttribute="leading" constant="146.5" id="UI3-4X-BUH"/>
                             <constraint firstItem="ndP-4h-xtV" firstAttribute="top" secondItem="NCr-Fo-8ps" secondAttribute="bottom" constant="60.666666666666742" id="WGL-td-dEF"/>
+                            <constraint firstItem="oRq-aO-8A0" firstAttribute="top" secondItem="ndP-4h-xtV" secondAttribute="bottom" constant="38.5" id="lxK-N8-2gU"/>
                             <constraint firstItem="ndP-4h-xtV" firstAttribute="leading" secondItem="c1b-rR-P5G" secondAttribute="leading" id="pUs-s9-u9y"/>
                             <constraint firstItem="NCr-Fo-8ps" firstAttribute="leading" secondItem="c1b-rR-P5G" secondAttribute="leading" constant="121" id="yHL-XD-b4r"/>
                         </constraints>
@@ -622,6 +638,7 @@
                     <navigationItem key="navigationItem" title="Edit profile" id="twV-Im-5cs"/>
                     <connections>
                         <outlet property="AccountTable" destination="ndP-4h-xtV" id="gR2-Wa-N2b"/>
+                        <outlet property="UserName" destination="geH-35-r0N" id="JUM-5o-103"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWW-yR-ilP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
