@@ -9,6 +9,7 @@ import UIKit
 import KeychainAccess
 import Alamofire
 
+
 class LoginPage: UIViewController {
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var Password: UITextField!
@@ -52,6 +53,16 @@ class LoginPage: UIViewController {
 //                print(error)
 //            }
 //        }
+        
+        let currentUser = loadCurrentUser()
+        if currentUser.isLoggedIn {
+            // Navigate to main screen if user is already logged in
+            let Main = storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as! UITabBarController
+            Main.modalPresentationStyle = .fullScreen
+            present(Main, animated: true)
+        } else {
+            print("No user is logged in")
+        }
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
@@ -63,6 +74,9 @@ class LoginPage: UIViewController {
             do {
                 if let storedPassword = try keychain.get(Username.text!) {
                     
+                    saveCurrentUser(isLoggedIn: true, username: username)
+                    print("User saved in UserDefaults")
+
                     // Debugging: Print to verify what's being retrieved
                     print("Retrieved from Keychain: Username - \(username), Stored Password - \(storedPassword)")
 
