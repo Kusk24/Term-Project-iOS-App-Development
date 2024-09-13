@@ -63,6 +63,7 @@ class LoginPage: UIViewController {
         } else {
             print("No user is logged in")
         }
+        
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
