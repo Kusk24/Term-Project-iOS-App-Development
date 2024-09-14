@@ -14,6 +14,17 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
+    // Shop details
+    struct ShopInfo {
+        let title: String
+        let address: String
+        let contact: String
+        let openingHours: String
+    }
+    
+    // Dictionary to store shop details
+    var shopDetails: [String: ShopInfo] = [:]
+    
     // Zoom buttons
     let zoomInButton = UIButton(type: .system)
     let zoomOutButton = UIButton(type: .system)
@@ -21,7 +32,7 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()        // Place map below navigation bar
-        setupShopLocations()
+        setupShopLocations()   // Set up shops with details
         setupZoomButtons()     // Add zoom buttons to the view
         checkLocationServices()
         
@@ -82,30 +93,52 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         }
     }
 
-    // Set up annotations for shop locations in Bangkok and Samut Prakan
+    // Set up annotations for shop locations in Bangkok and Samut Prakan with additional info
     func setupShopLocations() {
-        // Example shop locations in Bangkok and Samut Prakan (use real or imaginary locations)
-        let shopLocation1 = CLLocationCoordinate2D(latitude: 13.7563, longitude: 100.5018) // Example: Central Bangkok
-        let shopLocation2 = CLLocationCoordinate2D(latitude: 13.5995, longitude: 100.5968) // Example: Samut Prakan Area
-        let shopLocation3 = CLLocationCoordinate2D(latitude: 13.7226, longitude: 100.5260) // Example: Ekkamai Area
-        
+        // Shop 1 - Central Bangkok
+        let shopLocation1 = CLLocationCoordinate2D(latitude: 13.7563, longitude: 100.5018) // Central Bangkok
         let annotation1 = MKPointAnnotation()
         annotation1.coordinate = shopLocation1
         annotation1.title = "Shop 1 - Central Bangkok"
+        
+        shopDetails["Shop 1 - Central Bangkok"] = ShopInfo(
+            title: "Shop 1 - Central Bangkok",
+            address: "123 Sukhumvit Road, Bangkok",
+            contact: "+66 1234 5678",
+            openingHours: "9:00 AM - 6:00 PM"
+        )
 
+        // Shop 2 - Samut Prakan Area
+        let shopLocation2 = CLLocationCoordinate2D(latitude: 13.5995, longitude: 100.5968) // Samut Prakan Area
         let annotation2 = MKPointAnnotation()
         annotation2.coordinate = shopLocation2
         annotation2.title = "Shop 2 - Samut Prakan"
+        
+        shopDetails["Shop 2 - Samut Prakan"] = ShopInfo(
+            title: "Shop 2 - Samut Prakan",
+            address: "456 Rama IX Road, Samut Prakan",
+            contact: "+66 2345 6789",
+            openingHours: "8:00 AM - 8:00 PM"
+        )
 
+        // Shop 3 - Ekkamai Area
+        let shopLocation3 = CLLocationCoordinate2D(latitude: 13.7226, longitude: 100.5260) // Ekkamai Area
         let annotation3 = MKPointAnnotation()
         annotation3.coordinate = shopLocation3
         annotation3.title = "Shop 3 - Ekkamai"
+        
+        shopDetails["Shop 3 - Ekkamai"] = ShopInfo(
+            title: "Shop 3 - Ekkamai",
+            address: "789 Ekkamai Road, Bangkok",
+            contact: "+66 3456 7890",
+            openingHours: "10:00 AM - 7:00 PM"
+        )
 
         // Add the annotations to the map view
         mapView.addAnnotations([annotation1, annotation2, annotation3])
     }
 
-    // Customizing the annotation view and adding animation
+    // Customizing the annotation view to show the info button
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "ShopLocation"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
@@ -113,24 +146,40 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+
+            // Add info button to the callout
+            let infoButton = UIButton(type: .detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = infoButton
         } else {
             annotationView?.annotation = annotation
         }
 
-        // Add bounce animation to the annotation pin
-        annotationView?.transform = CGAffineTransform(scaleX: 0.0, y: 0.0) // Start with pin size 0 (invisible)
-        UIView.animate(withDuration: 0.5, animations: {
-            annotationView?.transform = CGAffineTransform.identity // Restore pin to normal size with bounce
-        })
-
         return annotationView
     }
 
-    // Set up zoom in and zoom out buttons with better visibility
+    // Handle the tap on the info button in the callout
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotationTitle = view.annotation?.title ?? "" else { return }
+
+        // Fetch the shop information
+        if let shopInfo = shopDetails[annotationTitle] {
+            let message = """
+            Address: \(shopInfo.address)
+            Contact: \(shopInfo.contact)
+            Opening Hours: \(shopInfo.openingHours)
+            """
+            
+            // Display the information in an alert
+            let alert = UIAlertController(title: shopInfo.title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    // Set up zoom in and zoom out buttons
     func setupZoomButtons() {
         // Style the buttons with a background color, rounded corners, and shadow
-        let buttonSize: CGFloat = 40
+        let buttonSize: CGFloat = 60
         let cornerRadius: CGFloat = buttonSize / 2
         
         // Set up zoom in button with symbol and style
@@ -193,3 +242,4 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         }
     }
 }
+
