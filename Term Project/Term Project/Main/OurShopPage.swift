@@ -64,12 +64,14 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
 
     // Check if Location Services are enabled
     func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            setupLocationManager()
-            checkLocationAuthorization()
-        } else {
-            // Notify the user to enable location services
-        }
+//        if CLLocationManager.locationServicesEnabled() {
+//            setupLocationManager()
+//            checkLocationAuthorization()
+//        } else {
+//            // Notify the user to enable location services
+//        }
+        setupLocationManager()
+        checkLocationAuthorization()
     }
 
     // Set up Location Manager
@@ -179,7 +181,7 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     // Set up zoom in and zoom out buttons
     func setupZoomButtons() {
         // Style the buttons with a background color, rounded corners, and shadow
-        let buttonSize: CGFloat = 60
+        let buttonSize: CGFloat = 50
         let cornerRadius: CGFloat = buttonSize / 2
         
         // Set up zoom in button with symbol and style

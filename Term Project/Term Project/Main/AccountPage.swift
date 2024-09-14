@@ -35,13 +35,13 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
     @IBOutlet weak var AccountTable: UITableView!
     @IBOutlet weak var UserName: UILabel!
+    let userDict = UserDefaults.standard.dictionary(forKey: "CurrentUser")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         AccountTable.dataSource = self
         AccountTable.delegate = self
         // Do any additional setup after loading the view.
-        let userDict = UserDefaults.standard.dictionary(forKey: "CurrentUser")
         if let username = userDict?["username"] as? String {
             UserName.text = username
         } else {
