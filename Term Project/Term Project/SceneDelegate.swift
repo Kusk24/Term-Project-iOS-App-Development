@@ -35,12 +35,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var handled = false
 
         if shortcutItem.type == "com.612054.Term-Project.search" {
+            SearchHome = true
             navigateToSearchPage()
             handled = true
         } else if shortcutItem.type == "com.612054.Term-Project.favorites" {
+            FavoriteHome = true
             navigateToFavoritesPage()
             handled = true
         } else if shortcutItem.type == "com.612054.Term-Project.booking" {
+            BookingHome = true
             navigateToBookingPage()
             handled = true
         }else {
