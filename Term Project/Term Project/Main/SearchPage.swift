@@ -23,7 +23,7 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
+
         // Initially show all cars
         filteredCars = cars
         

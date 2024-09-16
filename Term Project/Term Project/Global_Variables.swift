@@ -9,3 +9,7 @@ import Foundation
 
 var cars:[Car] = []
 //var favCars:[Car] = []
+
+var FavoriteHome : Bool = false
+var BookingHome: Bool = false
+var SearchHome: Bool = false

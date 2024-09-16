@@ -6,9 +6,6 @@
 //
 
 import UIKit
-var FavoriteHome : Bool = false
-var BookingHome: Bool = false
-var SearchHome: Bool = false
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

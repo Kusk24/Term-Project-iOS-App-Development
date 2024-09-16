@@ -113,3 +113,5 @@ func loadCurrentUser() -> (isLoggedIn: Bool, username: String?) {
 func unsaveCurrentUser(){
     saveCurrentUser(isLoggedIn: false, username: "")
 }
+
+

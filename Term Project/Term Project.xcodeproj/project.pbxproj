@@ -12,6 +12,8 @@
 		C538E4AD2C8634AB00946051 /* SupportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C538E4AC2C8634AB00946051 /* SupportTableCell.swift */; };
 		C54557F72C898C440011A105 /* Favorite_UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54557F62C898C440011A105 /* Favorite_UserDefaults.swift */; };
 		C54557FA2C898D4A0011A105 /* FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54557F92C898D4A0011A105 /* FavoriteTableCell.swift */; };
+		C58DE69F2C98CAE700CAD37F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C58DE69E2C98CAE700CAD37F /* SDWebImageSwiftUI */; };
+		C58DE6A12C98D2A600CAD37F /* ChangePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DE6A02C98D2A600CAD37F /* ChangePage.swift */; };
 		C5943EAE2C82EC8100B3E7C8 /* BuyingCellOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */; };
 		C5943EB02C82EC9200B3E7C8 /* BuyingCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */; };
 		C5943EB22C82ECA000B3E7C8 /* BuyingCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */; };
@@ -51,6 +53,7 @@
 		C538E4AC2C8634AB00946051 /* SupportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTableCell.swift; sourceTree = "<group>"; };
 		C54557F62C898C440011A105 /* Favorite_UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_UserDefaults.swift; sourceTree = "<group>"; };
 		C54557F92C898D4A0011A105 /* FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableCell.swift; sourceTree = "<group>"; };
+		C58DE6A02C98D2A600CAD37F /* ChangePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePage.swift; sourceTree = "<group>"; };
 		C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellOne.swift; sourceTree = "<group>"; };
 		C5943EAF2C82EC9200B3E7C8 /* BuyingCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellTwo.swift; sourceTree = "<group>"; };
 		C5943EB12C82ECA000B3E7C8 /* BuyingCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellThree.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58DE69F2C98CAE700CAD37F /* SDWebImageSwiftUI in Frameworks */,
 				C5E9CD3C2C80F36C00C6139B /* KeychainAccess in Frameworks */,
 				C5D39EB62C86E9230052FC2B /* Alamofire in Frameworks */,
 			);
@@ -121,6 +125,28 @@
 				C538E4A92C86317300946051 /* CollectionCellThree.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C58DE69A2C98C7B600CAD37F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C58DE69B2C98C7BE00CAD37F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C58DE69C2C98C7CA00CAD37F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C5943EAC2C82EC5400B3E7C8 /* BuyingTableView */ = {
@@ -177,6 +203,7 @@
 				C5B23CD72C8B820B001844FC /* AccountTableView */,
 				C5D39EBD2C8731D60052FC2B /* OurShopPage.swift */,
 				C5D781082C8584E60099E5F9 /* DetailPage.swift */,
+				C58DE6A02C98D2A600CAD37F /* ChangePage.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -184,6 +211,9 @@
 		C5FA7A1B2C79EA32006CABEF = {
 			isa = PBXGroup;
 			children = (
+				C58DE69C2C98C7CA00CAD37F /* ViewModel */,
+				C58DE69B2C98C7BE00CAD37F /* View */,
+				C58DE69A2C98C7B600CAD37F /* Model */,
 				C5FA7A262C79EA32006CABEF /* Term Project */,
 				C5FA7A252C79EA32006CABEF /* Products */,
 			);
@@ -210,7 +240,6 @@
 				C5FA7A352C79EA33006CABEF /* Info.plist */,
 				C5C756062C7A667C00E7E701 /* UserInfoModel.swift */,
 				C5C756082C7A66A500E7E701 /* UserInfoModelView.swift */,
-				C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */,
 				C5C68DFE2C7A0EF300C90154 /* Functions for UI.swift */,
 				C5D39EBB2C86EC020052FC2B /* Global_Variables.swift */,
 				C5D39EBF2C874D820052FC2B /* ExtensionFile.swift */,
@@ -238,6 +267,7 @@
 			packageProductDependencies = (
 				C5E9CD3B2C80F36C00C6139B /* KeychainAccess */,
 				C5D39EB52C86E9230052FC2B /* Alamofire */,
+				C58DE69E2C98CAE700CAD37F /* SDWebImageSwiftUI */,
 			);
 			productName = "Term Project";
 			productReference = C5FA7A242C79EA32006CABEF /* Term Project.app */;
@@ -270,6 +300,7 @@
 			packageReferences = (
 				C5E9CD3A2C80F36C00C6139B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C58DE69D2C98CAE700CAD37F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = C5FA7A252C79EA32006CABEF /* Products */;
 			projectDirPath = "";
@@ -312,6 +343,7 @@
 				C54557FA2C898D4A0011A105 /* FavoriteTableCell.swift in Sources */,
 				C5D39EC22C874E690052FC2B /* SearchTableCell.swift in Sources */,
 				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,
+				C58DE6A12C98D2A600CAD37F /* ChangePage.swift in Sources */,
 				C54557F72C898C440011A105 /* Favorite_UserDefaults.swift in Sources */,
 				C5C756032C7A2AA800E7E701 /* SignupPage.swift in Sources */,
 				C5D39EC02C874D820052FC2B /* ExtensionFile.swift in Sources */,
@@ -484,6 +516,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Term Project/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MotoMart;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock private features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -513,6 +546,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Term Project/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MotoMart;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock private features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -555,6 +589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C58DE69D2C98CAE700CAD37F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
 		C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -574,6 +616,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C58DE69E2C98CAE700CAD37F /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58DE69D2C98CAE700CAD37F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		C5D39EB52C86E9230052FC2B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C5D39EB42C86E9230052FC2B /* XCRemoteSwiftPackageReference "Alamofire" */;
