@@ -17,9 +17,8 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         // Do any additional setup after loading the view.
         BuyingTable.delegate = self
         BuyingTable.dataSource = self
-        
         BuyingTable.reloadData()
-        
+        NotificationHandler().askPermission()
     }
     
     override func viewWillAppear(_ animated: Bool) {

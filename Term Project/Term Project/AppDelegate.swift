@@ -7,17 +7,19 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 1.5)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Request notification permissions
+        
+        // Set the delegate for UNUserNotificationCenter
+        UNUserNotificationCenter.current().delegate = self
         
         // Alamofire request as a "static block"
         let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
-
         AF.request(url).responseDecodable(of: CarsResponse.self) { data in
             switch data.result {
             case .success(let carResponse):
@@ -45,8 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    
+    // MARK: - UNUserNotificationCenterDelegate Methods
 
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .badge, .sound]) // Show alert, badge, and play sound
+    }
 }
+
 

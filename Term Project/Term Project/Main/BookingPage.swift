@@ -17,7 +17,9 @@ class BookingPage: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        BookingHome = false
+        if BookingHome == true {
+            BookingHome = false
+        }
     }
     /*
     // MARK: - Navigation

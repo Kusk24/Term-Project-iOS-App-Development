@@ -13,3 +13,6 @@ var cars:[Car] = []
 var FavoriteHome : Bool = false
 var BookingHome: Bool = false
 var SearchHome: Bool = false
+
+var selectedDate = Date()
+

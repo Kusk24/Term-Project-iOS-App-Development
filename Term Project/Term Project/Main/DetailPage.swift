@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailPage: UIViewController {
-
+    let notify = NotificationHandler()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +16,9 @@ class DetailPage: UIViewController {
     }
     
 
+    @IBAction func BookingButtonClicked(_ sender: Any) {
+        notify.sendNotification(date: Date(), type: "time", timeInterval: 5, title: "Hey there!", body: "This is a reminder you set 5 seconds ago!")
+    }
     /*
     // MARK: - Navigation
 

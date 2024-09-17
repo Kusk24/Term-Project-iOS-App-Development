@@ -33,7 +33,9 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        SearchHome = false
+        if SearchHome == true {
+            SearchHome = false
+        }
         tableView.reloadData()
     }
     

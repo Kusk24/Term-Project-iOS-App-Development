@@ -1128,6 +1128,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="" subtitle="Book to rent">
                                     <fontDescription key="subtitleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="BookingButtonClicked:" destination="HgK-bg-kdx" eventType="touchUpInside" id="gPb-UH-sou"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1yw-zf-gre"/>
