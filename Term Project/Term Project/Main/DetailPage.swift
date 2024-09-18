@@ -9,6 +9,7 @@ import UIKit
 
 class DetailPage: UIViewController {
     let notify = NotificationHandler()
+    var mycar : Car?
     override func viewDidLoad() {
         super.viewDidLoad()
 

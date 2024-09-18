@@ -68,7 +68,12 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         return cell
     }
     
-    // MARK: - UISearchBarDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let i = indexPath.row
+        let Detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
+        Detail.mycar = filteredCars[i]
+        navigationController?.pushViewController(Detail, animated: true)
+    }
     
     // Search functionality when user types in search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

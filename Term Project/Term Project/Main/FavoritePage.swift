@@ -27,6 +27,13 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let i = indexPath.row
+        let Detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
+        Detail.mycar = getFavorites()[i]
+        navigationController?.pushViewController(Detail, animated: true)
+    }
+    
     @IBOutlet weak var FavoriteTable: UITableView!
     
     override func viewDidLoad() {
