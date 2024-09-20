@@ -115,3 +115,17 @@ func unsaveCurrentUser(){
 }
 
 
+func setupShadow(contentView: UIView) {
+    // Set content view corner radius
+    contentView.layer.cornerRadius = 10
+    
+    // Shadow settings
+    contentView.layer.shadowColor = UIColor.black.cgColor
+    contentView.layer.shadowOpacity = 0.25
+    contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+    contentView.layer.shadowRadius = 4
+    contentView.layer.masksToBounds = false
+    
+    // Add rounded corners
+    contentView.layer.cornerRadius = 10
+}

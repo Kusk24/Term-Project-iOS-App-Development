@@ -42,7 +42,6 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
 //            present(Search, animated: true)
         }
             
-                
         
     }
     

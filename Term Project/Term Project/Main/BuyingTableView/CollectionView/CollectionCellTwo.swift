@@ -16,4 +16,10 @@ class CollectionCellTwo: UICollectionViewCell {
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var FavoriteButton: UIButton!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupShadow(contentView: contentView)
+        layer.cornerRadius = 10
+    }
+    
 }

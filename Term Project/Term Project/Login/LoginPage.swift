@@ -23,6 +23,7 @@ class LoginPage: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         addImage(textField: Username, img: UIImage(systemName: "person.fill")!)
         addImage(textField: Password, img: UIImage(systemName: "lock.fill")!)
         LoginButton.layer.cornerRadius = 15
@@ -64,6 +65,19 @@ class LoginPage: UIViewController {
             print("No user is logged in")
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+        AF.request(url).responseDecodable(of: CarsResponse.self) { data in
+            switch data.result {
+            case .success(let carResponse):
+                cars = carResponse.cars
+                print("Cars loaded:", cars)
+            case .failure(let error):
+                print("Failed to load cars:", error)
+            }
+        }
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
