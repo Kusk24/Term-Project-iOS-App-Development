@@ -19,8 +19,6 @@ class CollectionCellOne: UICollectionViewCell {
         super.awakeFromNib()
         setupShadow(contentView: contentView)
         layer.cornerRadius = 10
-        contentView.layer.cornerRadius = 50
-        contentView.layer.masksToBounds = true
     }
     
 //    func setupShadow() {

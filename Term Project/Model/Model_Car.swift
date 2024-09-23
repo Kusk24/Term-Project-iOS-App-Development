@@ -34,3 +34,27 @@ struct Car: Codable {
         case location = "Location"
     }
 }
+
+
+//struct Car: Codable {
+//    let id : Int
+//    let brand: String
+//    let model: String
+//    let year: Int
+//    let image: [String]
+//    let price: Int
+//    let location: String
+//    let type: String
+//
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id = "Id"
+//        case brand = "Brand"
+//        case model = "Model"
+//        case year = "Year"
+//        case image = "Image"
+//        case price = "Price"
+//        case location = "Location"
+//        case type = "Type"
+//    }
+//}

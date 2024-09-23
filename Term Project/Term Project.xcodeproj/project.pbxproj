@@ -12,6 +12,7 @@
 		C538E4AD2C8634AB00946051 /* SupportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C538E4AC2C8634AB00946051 /* SupportTableCell.swift */; };
 		C54557F72C898C440011A105 /* Favorite_UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54557F62C898C440011A105 /* Favorite_UserDefaults.swift */; };
 		C54557FA2C898D4A0011A105 /* FavoriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54557F92C898D4A0011A105 /* FavoriteTableCell.swift */; };
+		C58BE8092CA13A1600813B89 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58BE8082CA13A1600813B89 /* CarViewModel.swift */; };
 		C58DE69F2C98CAE700CAD37F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C58DE69E2C98CAE700CAD37F /* SDWebImageSwiftUI */; };
 		C58DE6A12C98D2A600CAD37F /* ChangePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DE6A02C98D2A600CAD37F /* ChangePage.swift */; };
 		C58DE6A42C99B05500CAD37F /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DE6A32C99B05500CAD37F /* NotificationHandler.swift */; };
@@ -54,6 +55,7 @@
 		C538E4AC2C8634AB00946051 /* SupportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTableCell.swift; sourceTree = "<group>"; };
 		C54557F62C898C440011A105 /* Favorite_UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_UserDefaults.swift; sourceTree = "<group>"; };
 		C54557F92C898D4A0011A105 /* FavoriteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableCell.swift; sourceTree = "<group>"; };
+		C58BE8082CA13A1600813B89 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
 		C58DE6A02C98D2A600CAD37F /* ChangePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePage.swift; sourceTree = "<group>"; };
 		C58DE6A32C99B05500CAD37F /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		C5943EAD2C82EC8100B3E7C8 /* BuyingCellOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCellOne.swift; sourceTree = "<group>"; };
@@ -129,26 +131,27 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		C58DE69A2C98C7B600CAD37F /* Model */ = {
+		C58BE8062CA1384700813B89 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */,
+				C58BE8082CA13A1600813B89 /* CarViewModel.swift */,
 			);
-			path = Model;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C58DE69B2C98C7BE00CAD37F /* View */ = {
+		C58BE8072CA1385900813B89 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		C58DE69C2C98C7CA00CAD37F /* ViewModel */ = {
+		C58DE69A2C98C7B600CAD37F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5D39EB92C86EB7D0052FC2B /* Model_Car.swift */,
 			);
-			path = ViewModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C58DE6A22C99B04100CAD37F /* Handlers */ = {
@@ -222,8 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				C58DE6A22C99B04100CAD37F /* Handlers */,
-				C58DE69C2C98C7CA00CAD37F /* ViewModel */,
-				C58DE69B2C98C7BE00CAD37F /* View */,
+				C58BE8062CA1384700813B89 /* ViewModel */,
+				C58BE8072CA1385900813B89 /* View */,
 				C58DE69A2C98C7B600CAD37F /* Model */,
 				C5FA7A262C79EA32006CABEF /* Term Project */,
 				C5FA7A252C79EA32006CABEF /* Products */,
@@ -351,6 +354,7 @@
 				C5D39EBA2C86EB7D0052FC2B /* Model_Car.swift in Sources */,
 				C538E4AA2C86317300946051 /* CollectionCellThree.swift in Sources */,
 				C5B23CD92C8B821B001844FC /* AccountTableCell.swift in Sources */,
+				C58BE8092CA13A1600813B89 /* CarViewModel.swift in Sources */,
 				C54557FA2C898D4A0011A105 /* FavoriteTableCell.swift in Sources */,
 				C5D39EC22C874E690052FC2B /* SearchTableCell.swift in Sources */,
 				C5EBE3FF2C844FA3003EAD18 /* SupportPage.swift in Sources */,

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Alamofire request as a "static block"
         let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+        //let url = "https://mocki.io/v1/efb6b91b-ae74-4a1a-b2d7-ade81f9d3b8f"
         AF.request(url).responseDecodable(of: CarsResponse.self) { data in
             switch data.result {
             case .success(let carResponse):
