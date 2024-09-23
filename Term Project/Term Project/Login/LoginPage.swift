@@ -68,12 +68,23 @@ class LoginPage: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+//        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+//        AF.request(url).responseDecodable(of: CarsResponse.self) { data in
+//            switch data.result {
+//            case .success(let carResponse):
+//                cars = carResponse.cars
+//                print("Cars loaded:", cars)
+//            case .failure(let error):
+//                print("Failed to load cars:", error)
+//            }
+//        }
+//        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
+        let url = "https://mocki.io/v1/efb6b91b-ae74-4a1a-b2d7-ade81f9d3b8f"
         AF.request(url).responseDecodable(of: CarsResponse.self) { data in
             switch data.result {
             case .success(let carResponse):
-                cars = carResponse.cars
-                print("Cars loaded:", cars)
+//                cars = carResponse.cars
+                print("Cars loaded:", carResponse.cars)
             case .failure(let error):
                 print("Failed to load cars:", error)
             }

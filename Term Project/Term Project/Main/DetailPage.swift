@@ -18,7 +18,7 @@ class DetailPage: UIViewController {
     
 
     @IBAction func BookingButtonClicked(_ sender: Any) {
-        notify.sendNotification(date: Date(), type: "time", timeInterval: 5, title: "Hey there!", body: "This is a reminder you set 5 seconds ago!")
+        notify.sendNotification(date: Date(), type: "time", timeInterval: 0.05, title: "Hey there!", body: "You have successfully booked a car")
     }
     /*
     // MARK: - Navigation

@@ -52,16 +52,18 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Search") as! SearchTableCell
         
         // Get the car from the filteredCars array
-        let car = filteredCars[indexPathRow]
+        let id = filteredCars[indexPathRow].id
         
         // Configure the cell with car data
-        cell.Brand.text = car.brand
-        cell.Price.text = String(car.price)
-        cell.Model.text = car.model
-        cell.Year.text = String(car.year)
+        cell.Brand.text = String(CarViewModel.shared.getCarBrand(id: id) ?? "")
+        cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
+        cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
+        cell.Price.text = String(CarViewModel.shared.getCarPrice(id: id) ?? "")
+        cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
+
         
         // Check the favorite status
-        checkFavorite(myButton: cell.FavoriteButton, mycar: car)
+        checkFavorite(myButton: cell.FavoriteButton, mycar: filteredCars[indexPathRow])
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         

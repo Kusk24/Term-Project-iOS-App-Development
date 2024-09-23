@@ -15,6 +15,7 @@ class FavoriteTableCell: UITableViewCell {
     @IBOutlet weak var Year: UILabel!
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var FavoriteButton: UIButton!
+    @IBOutlet weak var Myimage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -16,11 +16,13 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         let i = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell") as! FavoriteTableCell
         
-        cell.Brand.text = getFavorites()[i].brand
-        cell.Model.text = getFavorites()[i].model
-        cell.Year.text = String(getFavorites()[i].year)
-        cell.Price.text = String(getFavorites()[i].price)
+        let id = getFavorites()[i].id
+        cell.Brand.text = String(CarViewModel.shared.getCarBrand(id: id) ?? "")
+        cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
+        cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
+        cell.Price.text = String(CarViewModel.shared.getCarPrice(id: id) ?? "")
         checkFavorite(myButton: cell.FavoriteButton, mycar: getFavorites()[i])
+        cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
         cell.FavoriteButton.tag = i
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         

@@ -16,14 +16,14 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         let reverseIndex = cars.count - 1 - indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCellTwo", for: indexPath) as! CollectionCellTwo
                 
-        let car = cars[reverseIndex]
-        cell.Brand.text = car.brand
-        cell.Model.text = car.model
-        cell.Price.text = String(car.price)
-        cell.Year.text = String(car.year)
-        // cell.Myimage.image = car.image
+        let id = cars[reverseIndex].id
+        cell.Brand.text = CarViewModel.shared.getCarBrand(id: id) ?? ""
+        cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
+        cell.Price.text = String(CarViewModel.shared.getCarPrice(id: id) ?? "")
+        cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
+        cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
                 
-        checkFavorite(myButton: cell.FavoriteButton, mycar: car)
+        checkFavorite(myButton: cell.FavoriteButton, mycar: cars[reverseIndex])
         cell.FavoriteButton.tag = reverseIndex
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         

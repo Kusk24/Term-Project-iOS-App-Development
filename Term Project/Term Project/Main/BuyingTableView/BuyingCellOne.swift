@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImageSwiftUI
 
 class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -38,15 +39,16 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let IndexPath = indexPath.item
+        let i = indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCellOne", for: indexPath ) as! CollectionCellOne
         
         
-        cell.Brand.text = cars[IndexPath].brand
-        cell.Model.text = cars[IndexPath].model
-        cell.Price.text = String(cars[IndexPath].price)
-        cell.Year.text = String(cars[IndexPath].year)
-        checkFavorite(myButton: cell.FavoriteButton, mycar: cars[IndexPath])
+        cell.Brand.text = String(CarViewModel.shared.getCarBrand(id: cars[i].id) ?? "")
+        cell.Model.text = CarViewModel.shared.getCarModel(id: cars[i].id) ?? ""
+        cell.Price.text = CarViewModel.shared.getCarPrice(id: cars[i].id) ?? ""
+        cell.Year.text = String(CarViewModel.shared.getCarYear(id: cars[i].id) ?? "")
+        checkFavorite(myButton: cell.FavoriteButton, mycar: cars[i])
+        cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: cars[i].id)!))
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
