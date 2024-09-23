@@ -31,7 +31,14 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        authenticate(MyString: "Password")
+        let i = indexPath.row
+        if i == 0{
+            authenticate(MyString: "Username")
+        } else if i == 2{
+            authenticate(MyString: "Password")
+        } else {
+            authenticate(MyString: "Email")
+        }
     }
 
     @IBOutlet weak var AccountTable: UITableView!
@@ -76,6 +83,7 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
                         // Push to ChangePage after successful authentication
                          
                             let Change = self.storyboard?.instantiateViewController(withIdentifier: "Change") as! ChangePage
+                            Change.keyword = MyString
                             self.navigationController?.pushViewController(Change, animated: true)
                         
                         

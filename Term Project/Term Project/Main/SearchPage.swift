@@ -58,12 +58,12 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         cell.Brand.text = String(CarViewModel.shared.getCarBrand(id: id) ?? "")
         cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
-        cell.Price.text = String(CarViewModel.shared.getCarPrice(id: id) ?? "")
+        cell.Price.text = "$" + (String(CarViewModel.shared.getCarPrice(id: id) ?? ""))
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
 
         
         // Check the favorite status
-        checkFavorite(myButton: cell.FavoriteButton, mycar: filteredCars[indexPathRow])
+        checkFavorite(myButton: cell.FavoriteButton, id: id)
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
@@ -104,14 +104,14 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         let car = filteredCars[carIndex]
         
         // Toggle the favorite status
-        if isFavorite(car: car) {
-            removeFavorite(mycar: car)
+        if isFavorite(id: car.id) {
+            removeFavorite(id: car.id)
         } else {
-            addFavorite(mycar: car)
+            addFavorite(id: car.id)
         }
         
         // Update the favorite button's appearance
-        checkFavorite(myButton: sender, mycar: car)
+        checkFavorite(myButton: sender, id: car.id)
         
         // Reload the specific row to reflect the favorite status change
         tableView.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)

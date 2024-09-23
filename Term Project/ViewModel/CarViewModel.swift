@@ -113,4 +113,10 @@ struct CarViewModel {
         return nil
     }
     
+    func getImageList(id: Int) -> [String]? {
+        if let car = cars.first(where: { $0.id == id }) {
+            return car.images
+        }
+        return nil
+    }
 }

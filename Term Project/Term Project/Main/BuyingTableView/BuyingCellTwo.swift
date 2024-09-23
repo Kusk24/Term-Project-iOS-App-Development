@@ -19,11 +19,11 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         let id = cars[reverseIndex].id
         cell.Brand.text = CarViewModel.shared.getCarBrand(id: id) ?? ""
         cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
-        cell.Price.text = String(CarViewModel.shared.getCarPrice(id: id) ?? "")
+        cell.Price.text = "$" + (String(CarViewModel.shared.getCarPrice(id: id) ?? ""))
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
                 
-        checkFavorite(myButton: cell.FavoriteButton, mycar: cars[reverseIndex])
+        checkFavorite(myButton: cell.FavoriteButton, id: id)
         cell.FavoriteButton.tag = reverseIndex
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
@@ -58,14 +58,14 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         let car = cars[carIndex]
 
         // Toggle the favorite status
-        if isFavorite(car: car) {
-            removeFavorite(mycar: car)
+        if isFavorite(id: car.id) {
+            removeFavorite(id: car.id)
         } else {
-            addFavorite(mycar: car)
+            addFavorite(id: car.id)
         }
         
         // Update the button's appearance
-        checkFavorite(myButton: sender, mycar: car)
+        checkFavorite(myButton: sender, id: car.id)
         
         // Reload the collection view data (optional: only reload affected item)
         collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])
