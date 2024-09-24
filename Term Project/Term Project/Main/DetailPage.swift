@@ -6,14 +6,31 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailPage: UIViewController {
     let notify = NotificationHandler()
-    var mycar : Car?
+    var mycar : Car!
+    @IBOutlet weak var Brand: UILabel!
+    @IBOutlet weak var Model: UILabel!
+    @IBOutlet weak var Year: UILabel!
+    @IBOutlet weak var Price: UILabel!
+    @IBOutlet weak var Shop: UILabel!
+    @IBOutlet weak var Myimages: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Brand.text = mycar.brand
+        Model.text = mycar.model
+        Year.text = String(mycar.year)
+        Price.text = String(mycar.price)
+        Shop.text = mycar.location
+        Myimages.sd_setImage(with: URL(string: mycar.images[0]))
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
 

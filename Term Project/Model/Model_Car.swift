@@ -69,3 +69,15 @@ struct CarsResponse: Codable {
         case cars = "Cars"
     }
 }
+
+//class CarData {
+//    static var cars: [Car] = []
+//    
+//    static func getCars() -> [Car] {
+//        return cars
+//    }
+//    
+//    static func loadCars(loadedCars: [Car]) {
+//        cars = loadedCars
+//    }
+//}

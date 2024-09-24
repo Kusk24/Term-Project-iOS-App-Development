@@ -25,10 +25,10 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         searchBar.delegate = self
 
         // Initially show all cars
-        filteredCars = cars
+        filteredCars = CarViewModel.shared.getCarList()
         
         // Debugging: Print initial cars
-        print("Initial cars array: \(cars)")
+//        print("Initial cars array: \(CarViewModel.shared.getCarList())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +63,7 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
         
         // Check the favorite status
-        checkFavorite(myButton: cell.FavoriteButton, id: id)
+        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: id)
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
@@ -81,10 +81,10 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             // Show all cars if search text is empty
-            filteredCars = cars
+            filteredCars = CarViewModel.shared.getCarList()
         } else {
             // Filter cars based on brand or model
-            filteredCars = cars.filter { car in
+            filteredCars = CarViewModel.shared.getCarList().filter { car in
                 car.brand.lowercased().contains(searchText.lowercased()) ||
                 car.model.lowercased().contains(searchText.lowercased())
             }
@@ -104,14 +104,14 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         let car = filteredCars[carIndex]
         
         // Toggle the favorite status
-        if isFavorite(id: car.id) {
-            removeFavorite(id: car.id)
+        if FavoriteViewModel.shared.isFavorite(id: car.id) {
+            FavoriteViewModel.shared.removeFavorite(id: car.id)
         } else {
-            addFavorite(id: car.id)
+            FavoriteViewModel.shared.addFavorite(id: car.id)
         }
         
         // Update the favorite button's appearance
-        checkFavorite(myButton: sender, id: car.id)
+        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id)
         
         // Reload the specific row to reflect the favorite status change
         tableView.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)
