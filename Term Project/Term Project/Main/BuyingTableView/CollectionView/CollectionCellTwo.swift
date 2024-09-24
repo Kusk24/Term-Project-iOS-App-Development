@@ -15,11 +15,15 @@ class CollectionCellTwo: UICollectionViewCell {
     @IBOutlet weak var Year: UILabel!
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var FavoriteButton: UIButton!
+    @IBOutlet weak var ViewInside: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupShadow(contentView: contentView)
         layer.cornerRadius = 10
+        
+        ViewInside.layer.cornerRadius = 15
+        ViewInside.layer.masksToBounds = true
     }
     
 }

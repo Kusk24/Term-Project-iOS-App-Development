@@ -11,11 +11,15 @@ class CollectionCellThree: UICollectionViewCell {
     
     @IBOutlet weak var Myimage: UIImageView!
     @IBOutlet weak var TypeName: UILabel!
+    @IBOutlet weak var ViewInside: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupShadow(contentView: contentView)
         layer.cornerRadius = 10
+        
+        ViewInside.layer.cornerRadius = 15
+        ViewInside.layer.masksToBounds = true
     }
     
 }
