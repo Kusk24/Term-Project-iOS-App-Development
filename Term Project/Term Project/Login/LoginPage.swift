@@ -55,7 +55,12 @@ class LoginPage: UIViewController {
 //            }
 //        }
         
-        let currentUser = loadCurrentUser()
+       
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let currentUser = CurrentUserViewModel.shared.loadCurrentUser()
         if currentUser.isLoggedIn {
             // Navigate to main screen if user is already logged in
             let Main = storyboard?.instantiateViewController(withIdentifier: "MainTabBar") as! UITabBarController
@@ -64,11 +69,6 @@ class LoginPage: UIViewController {
         } else {
             print("No user is logged in")
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
@@ -80,7 +80,7 @@ class LoginPage: UIViewController {
             do {
                 if let storedPassword = try keychain.get(Username.text!) {
                     
-                    saveCurrentUser(isLoggedIn: true, username: username)
+                    CurrentUserViewModel.shared.saveCurrentUser(isLoggedIn: true, username: username)
                     print("User saved in UserDefaults")
 
                     // Debugging: Print to verify what's being retrieved
@@ -103,9 +103,11 @@ class LoginPage: UIViewController {
             
         } else {
             if Username.text!.isEmpty {
+                UsernameError.textColor = .systemRed
                 UsernameError.text = "Username Required!!!"
             }
             if Password.text!.isEmpty {
+                PasswordError.textColor = .systemRed
                 PasswordError.text = "Password Required!!!"
             }
         }
@@ -145,9 +147,11 @@ class LoginPage: UIViewController {
     @IBAction func UsernameEditingChanged(_ sender: Any) {
         if let currentInput = Username.text{
             if currentInput.count < 4 {
+                UsernameError.textColor = .systemRed
                 UsernameError.text = "Username must be at least 4 Characters"
             } else {
-                UsernameError.text = ""
+                UsernameError.textColor = .systemGreen
+                UsernameError.text = "✓"
             }
         }
     }
@@ -155,10 +159,17 @@ class LoginPage: UIViewController {
     @IBAction func PasswordEditingChanged(_ sender: Any) {
         if let currentInput = Password.text{
             if currentInput.count < 8 {
+                PasswordError.textColor = .systemRed
                 PasswordError.text = "Passwords must be at least 8 Characters"
             } else {
-                PasswordError.text = ""
+                PasswordError.textColor = .systemGreen
+                PasswordError.text = "✓"
             }
+            
+//            if currentInput.isEmpty {
+//                UsernameError.textColor = .systemRed
+//                UsernameError.text = ""
+//            }
         }
 
     }

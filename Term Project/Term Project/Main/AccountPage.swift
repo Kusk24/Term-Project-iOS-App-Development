@@ -60,11 +60,36 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
 
     @IBAction func logOutClicked(_ sender: Any) {
-        unsaveCurrentUser()
-        let Login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
         
-        Login.modalPresentationStyle = .fullScreen
-        present(Login, animated: true)
+        
+        let actionSheet = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+//                AuthManager.shared.logOut(completion: {success in
+//                    DispatchQueue.main.async {
+//                        if (success) {
+//                            // Go to login after logout
+//                            let Login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
+//                            Login.modalPresentationStyle = .fullScreen
+//                            self.present(Login, animated: true, completion: {
+//                                self.navigationController?.popToRootViewController(animated: false)
+//                                self.tabBarController?.selectedIndex = 0
+//                            })
+//                            }
+//                        else {
+//                            // Error Occurd
+//                            fatalError("Could not log out user")
+//                        }
+//                    }
+//                })
+                CurrentUserViewModel.shared.unsaveCurrentUser()
+                if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login") {
+                        self.view.window?.rootViewController = loginViewController
+                        self.view.window?.makeKeyAndVisible()
+                    }
+            }))
+            
+            present(actionSheet, animated: true)
         
     }
     

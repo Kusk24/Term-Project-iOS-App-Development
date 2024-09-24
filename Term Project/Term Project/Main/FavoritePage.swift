@@ -9,19 +9,19 @@ import UIKit
 
 class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FavoriteViewModel.shared.getFavorites().count
+        return FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "").count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell") as! FavoriteTableCell
         
-        let id = FavoriteViewModel.shared.getFavorites()[i].id
+        let id = FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[i].id
         cell.Brand.text = String(CarViewModel.shared.getCarBrand(id: id) ?? "")
         cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
         cell.Price.text = "$"+String(CarViewModel.shared.getCarPrice(id: id) ?? "")
-        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: FavoriteViewModel.shared.getFavorites()[i].id)
+        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[i].id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
         cell.FavoriteButton.tag = i
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
@@ -32,7 +32,7 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let i = indexPath.row
         let Detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
-        Detail.mycar = FavoriteViewModel.shared.getFavorites()[i]
+        Detail.mycar = FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[i]
         navigationController?.pushViewController(Detail, animated: true)
     }
     
@@ -66,15 +66,15 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     @objc func FavoriteButtonTapped(_ sender: UIButton) {
         let carIndex = sender.tag
-        let car = FavoriteViewModel.shared.getFavorites()[carIndex]
+        let car = FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[carIndex]
         
         // Toggle the favorite status
-        if FavoriteViewModel.shared.isFavorite(id: car.id) {
-            FavoriteViewModel.shared.removeFavorite(id: car.id)
+        if FavoriteViewModel.shared.isFavorite(id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "") {
+            FavoriteViewModel.shared.removeFavorite(id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         }
         
         // Update the button's appearance
-        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id)
+        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         FavoriteTable.reloadData()
         // Reload the collection view data (optional: only reload affected item)
         FavoriteTable.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)

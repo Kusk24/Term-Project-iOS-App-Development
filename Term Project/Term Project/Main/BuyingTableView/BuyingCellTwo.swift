@@ -23,7 +23,7 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
                 
-        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: id)
+        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.FavoriteButton.tag = reverseIndex
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
@@ -61,14 +61,14 @@ class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         let car = CarViewModel.shared.getCarList()[carIndex]
 
         // Toggle the favorite status
-        if FavoriteViewModel.shared.isFavorite(id: car.id) {
-            FavoriteViewModel.shared.removeFavorite(id: car.id)
+        if FavoriteViewModel.shared.isFavorite(id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "") {
+            FavoriteViewModel.shared.removeFavorite(id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         } else {
-            FavoriteViewModel.shared.addFavorite(id: car.id)
+            FavoriteViewModel.shared.addFavorite(id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         }
         
         // Update the button's appearance
-        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id)
+        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         
         // Reload the collection view data (optional: only reload affected item)
         collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])

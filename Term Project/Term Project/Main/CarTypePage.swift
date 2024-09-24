@@ -40,6 +40,7 @@ class CarTypePage: UIViewController, UICollectionViewDataSource, UICollectionVie
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        navigationItem.title = cartype
         // Do any additional setup after loading the view.
     }
     

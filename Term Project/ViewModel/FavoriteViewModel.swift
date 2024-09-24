@@ -9,68 +9,67 @@ import Foundation
 import UIKit
 
 class FavoriteViewModel {
-    
+
     static let shared = FavoriteViewModel()
     
-    func saveFavorites(favCars: [Car]) {
+    // Save favorites for a specific user
+    func saveFavorites(favCars: [Car], username: String) {
+        let key = "favCars_\(username)"  // Create a unique key based on the username
         if let encodedData = try? JSONEncoder().encode(favCars) {
-            UserDefaults.standard.set(encodedData, forKey: "favCars")
+            UserDefaults.standard.set(encodedData, forKey: key)
         }
     }
     
-    func getFavorites() -> [Car] {
-        if let data = UserDefaults.standard.data(forKey: "favCars"),
+    // Retrieve favorites for a specific user
+    func getFavorites(username: String) -> [Car] {
+        let key = "favCars_\(username)"  // Retrieve using the unique key
+        if let data = UserDefaults.standard.data(forKey: key),
            let favCars = try? JSONDecoder().decode([Car].self, from: data) {
             return favCars
         }
         return []
     }
     
-    func isFavorite(id: Int) -> Bool {
-        return getFavorites().contains(where: { $0.id == id})
+    // Check if a specific car is a favorite for a specific user
+    func isFavorite(id: Int, username: String) -> Bool {
+        return getFavorites(username: username).contains(where: { $0.id == id })
     }
     
-    func addFavorite(id: Int) {
-        // Retrieve the current favorite cars from UserDefaults
-        var favCars = getFavorites()
-        let mycar : Car = CarViewModel.shared.getCarList().first(where: { $0.id == id})!
+    // Add a car to favorites for a specific user
+    func addFavorite(id: Int, username: String) {
+        var favCars = getFavorites(username: username)
+        let mycar: Car = CarViewModel.shared.getCarList().first(where: { $0.id == id })!
         
-        // Check if the car is not already in the favorite list
-        if !favCars.contains(where: {$0.id == id}) {
+        if !favCars.contains(where: { $0.id == id }) {
             favCars.append(mycar)
-            saveFavorites(favCars: favCars)
-            print("\(mycar.brand) added to favorites.")
+            saveFavorites(favCars: favCars, username: username)
+            print("\(mycar.brand) added to \(username)'s favorites.")
         } else {
-            print("\(mycar.brand) is already in favorites.")
+            print("\(mycar.brand) is already in \(username)'s favorites.")
         }
     }
     
-    func removeFavorite(id: Int) {
-        // Retrieve the current favorite cars from UserDefaults
-        var favCars = getFavorites()
+    // Remove a car from favorites for a specific user
+    func removeFavorite(id: Int, username: String) {
+        var favCars = getFavorites(username: username)
         
-        // Find the index of the car in the favorite list
-        if let index = favCars.firstIndex(where: { $0.id == id}) {
+        if let index = favCars.firstIndex(where: { $0.id == id }) {
             favCars.remove(at: index)
-            saveFavorites(favCars: favCars)
+            saveFavorites(favCars: favCars, username: username)
         } else {
-            print("cannot remove")
+            print("Cannot remove from \(username)'s favorites.")
         }
     }
     
-    func checkFavorite(myButton: UIButton, id: Int) {
-        // Retrieve the current favorite cars from UserDefaults
-        let favCars = getFavorites()
+    // Check the favorite status and update the button for a specific user
+    func checkFavorite(myButton: UIButton, id: Int, username: String) {
+        let favCars = getFavorites(username: username)
+        let isFavorite = favCars.contains(where: { $0.id == id })
         
-        // Check if the car is in the favorites list
-        let isFavorite = favCars.contains(where: { $0.id == id})
-        
-        // Update the button's image based on whether the car is a favorite
         if isFavorite {
             myButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
             myButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
-    
 }
