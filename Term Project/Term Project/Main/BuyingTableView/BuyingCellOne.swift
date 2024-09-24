@@ -47,7 +47,7 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
         cell.Price.text = "$" + (CarViewModel.shared.getCarPrice(id: id) ?? "")
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
-        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id)!))
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
@@ -79,7 +79,7 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         }
         
         // Update the button's appearance
-        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         
         // Reload the collection view data (optional: only reload affected item)
         collectionView.reloadItems(at: [IndexPath(item: carIndex, section: 0)])

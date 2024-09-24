@@ -63,7 +63,7 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
         
         // Check the favorite status
-        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
         
@@ -111,7 +111,7 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         }
         
         // Update the favorite button's appearance
-        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         
         // Reload the specific row to reflect the favorite status change
         tableView.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)

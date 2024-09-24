@@ -21,7 +21,7 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.Model.text = CarViewModel.shared.getCarModel(id: id) ?? ""
         cell.Year.text = String(CarViewModel.shared.getCarYear(id: id) ?? "")
         cell.Price.text = "$"+String(CarViewModel.shared.getCarPrice(id: id) ?? "")
-        FavoriteViewModel.shared.checkFavorite(myButton: cell.FavoriteButton, id: FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[i].id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: cell.FavoriteButton, id: FavoriteViewModel.shared.getFavorites(username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")[i].id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
         cell.FavoriteButton.tag = i
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
@@ -74,7 +74,7 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
         
         // Update the button's appearance
-        FavoriteViewModel.shared.checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
+        checkFavorite(myButton: sender, id: car.id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         FavoriteTable.reloadData()
         // Reload the collection view data (optional: only reload affected item)
         FavoriteTable.reloadRows(at: [IndexPath(row: carIndex, section: 0)], with: .automatic)
