@@ -62,14 +62,4 @@ class FavoriteViewModel {
     }
     
     // Check the favorite status and update the button for a specific user
-    func checkFavorite(myButton: UIButton, id: Int, username: String) {
-        let favCars = getFavorites(username: username)
-        let isFavorite = favCars.contains(where: { $0.id == id })
-        
-        if isFavorite {
-            myButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            myButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
-    }
 }

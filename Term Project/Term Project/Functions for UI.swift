@@ -62,3 +62,14 @@ func setupShadow(contentView: UIView) {
     // Add rounded corners
     contentView.layer.cornerRadius = 10
 }
+
+func checkFavorite(myButton: UIButton, id: Int, username: String) {
+    let favCars = FavoriteViewModel.shared.getFavorites(username: username)
+    let isFavorite = favCars.contains(where: { $0.id == id })
+    
+    if isFavorite {
+        myButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    } else {
+        myButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+}
