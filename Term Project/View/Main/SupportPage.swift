@@ -1,14 +1,14 @@
 //
-//  SigninSSOPage.swift
+//  SupportPage.swift
 //  Term Project
 //
-//  Created by Win Yu Maung on 30/08/2024.
+//  Created by Win Yu Maung on 01/09/2024.
 //
 
 import UIKit
 
-class SigninSSOPage: UIViewController {
-
+class SupportPage: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

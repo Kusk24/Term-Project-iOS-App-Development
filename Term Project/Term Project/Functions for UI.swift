@@ -65,7 +65,7 @@ func setupShadow(contentView: UIView) {
 
 func checkFavorite(myButton: UIButton, id: Int, username: String) {
     let favCars = FavoriteViewModel.shared.getFavorites(username: username)
-    let isFavorite = favCars.contains(where: { $0.id == id })
+    let isFavorite = favCars.contains(where: { $0.car.id == id })
     
     if isFavorite {
         myButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -73,3 +73,4 @@ func checkFavorite(myButton: UIButton, id: Int, username: String) {
         myButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
 }
+

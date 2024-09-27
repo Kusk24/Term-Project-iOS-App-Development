@@ -13,6 +13,7 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
 
     var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    var shop: String?
     
     // Shop details
     struct ShopInfo {

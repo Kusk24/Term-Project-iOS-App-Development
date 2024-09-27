@@ -10,7 +10,6 @@ import Alamofire
 import UIKit
 
 class CarViewModel {
-    var cars: [Car] = []
 
     static let shared = CarViewModel()
 //    let url = "https://mocki.io/v1/38f2fe3a-2ecc-45ad-88fd-405ade9a68da"
@@ -26,7 +25,7 @@ class CarViewModel {
                     let decoder = JSONDecoder()
                     let carList = try decoder.decode(CarsResponse.self, from: data)
                     
-                    self.cars = carList.cars
+                    CarModel.shared.loadCars(loadedCars: carList.cars)
                     // Return the car list via completion handler
                     completion(.success(carList.cars))
                 } catch let decodingError {
@@ -42,22 +41,22 @@ class CarViewModel {
     
     // Method to return the count of cars
     func getCarCount() -> Int {
-        return self.cars.count
+        return CarModel.shared.getCars().count
     }
     
     func getCarList() -> [Car] {
-        return self.cars
+        return CarModel.shared.getCars()
     }
     
     // Method to get a specific car by index
     func getCar(at index: Int) -> Car? {
-        guard index >= 0 && index < self.cars.count else { return nil }
-        return self.cars[index]
+        guard index >= 0 && index < CarModel.shared.getCars().count else { return nil }
+        return CarModel.shared.getCars()[index]
     }
     
     // You can add more methods to manipulate car data as needed, e.g. filter by brand, etc.
     func getCarImage(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
                 // Assuming you have a way to get the UIImage for the car
             let imageConvert = car.images[0]
             return imageConvert
@@ -66,49 +65,49 @@ class CarViewModel {
     }
     
     func getCarBrand(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return car.brand
         }
         return nil
     }
     
     func getCarModel(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return car.model
         }
         return nil
     }
     
     func getCarYear(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return String(car.year)
         }
         return nil
     }
     
     func getCarPrice(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return String(car.price)
         }
         return nil
     }
     
     func getCarLocation(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return car.location
         }
         return nil
     }
     
     func getCarType(id: Int) -> String? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return car.type
         }
         return nil
     }
     
     func getImageList(id: Int) -> [String]? {
-        if let car = self.cars.first(where: { $0.id == id }) {
+        if let car = CarModel.shared.getCars().first(where: { $0.id == id }) {
             return car.images
         }
         return nil

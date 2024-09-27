@@ -37,14 +37,15 @@ struct CarsResponse: Codable {
     }
 }
 
-//class CarData {
-//    static var cars: [Car] = []
-//    
-//    static func getCars() -> [Car] {
-//        return cars
-//    }
-//    
-//    static func loadCars(loadedCars: [Car]) {
-//        cars = loadedCars
-//    }
-//}
+class CarModel {
+    static let shared = CarModel()
+    var cars: [Car] = []
+    
+    func getCars() -> [Car] {
+        return cars
+    }
+    
+    func loadCars(loadedCars: [Car]) {
+        cars = loadedCars
+    }
+}

@@ -17,8 +17,6 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableCell") as! AccountTableCell
         let i = indexPath.row
         if i == 0{
-            cell.textLabel?.text = "Change Username"
-        }else if i == 2{
             cell.textLabel?.text = "Change Password"
         } else{
             cell.textLabel?.text = "Change Email"
@@ -33,8 +31,6 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let i = indexPath.row
         if i == 0{
-            authenticate(MyString: "Username")
-        } else if i == 2{
             authenticate(MyString: "Password")
         } else {
             authenticate(MyString: "Email")
@@ -65,30 +61,21 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let actionSheet = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
             actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
-//                AuthManager.shared.logOut(completion: {success in
-//                    DispatchQueue.main.async {
-//                        if (success) {
-//                            // Go to login after logout
-//                            let Login = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginPage
-//                            Login.modalPresentationStyle = .fullScreen
-//                            self.present(Login, animated: true, completion: {
-//                                self.navigationController?.popToRootViewController(animated: false)
-//                                self.tabBarController?.selectedIndex = 0
-//                            })
-//                            }
-//                        else {
-//                            // Error Occurd
-//                            fatalError("Could not log out user")
-//                        }
-//                    }
-//                })
                 CurrentUserViewModel.shared.unsaveCurrentUser()
-                if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login") {
-                        self.view.window?.rootViewController = loginViewController
-                        self.view.window?.makeKeyAndVisible()
+                if let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "Login") as? LoginPage {
+                    let navigationController = UINavigationController(rootViewController: loginPage)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    
+                    // Replace the current root with LoginPage
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let delegate = windowScene.delegate as? SceneDelegate {
+                        delegate.window?.rootViewController = navigationController
+                        delegate.window?.makeKeyAndVisible()
                     }
+                }
+                    
             }))
-            
+             
             present(actionSheet, animated: true)
         
     }
