@@ -10,7 +10,7 @@ import LocalAuthentication
 
 class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -18,7 +18,7 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let i = indexPath.row
         if i == 0{
             cell.textLabel?.text = "Change Password"
-        } else{
+        } else if i == 1{
             cell.textLabel?.text = "Change Email"
         }
         return cell
@@ -32,7 +32,7 @@ class AccountPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let i = indexPath.row
         if i == 0{
             authenticate(MyString: "Password")
-        } else {
+        } else if i == 1 {
             authenticate(MyString: "Email")
         }
     }

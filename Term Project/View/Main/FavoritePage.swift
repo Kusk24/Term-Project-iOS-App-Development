@@ -58,9 +58,9 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if FavoriteHome == true {
-            FavoriteHome = false
-        }
+//        if FavoriteHome == true {
+//            FavoriteHome = false
+//        }
         FavoriteTable.reloadData()
     }
     

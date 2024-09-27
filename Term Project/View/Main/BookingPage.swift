@@ -28,6 +28,15 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         cell.CancelButton.addTarget(self, action: #selector(CancelClicked(_:)), for: .touchUpInside)
         cell.ShopButton.addTarget(self, action: #selector(ShopClicked(_:)), for: .touchUpInside)
         cell.TotalCost.text = "Cost = $ \(Int(booking.date)! * booking.car.price)"
+        
+        cell.ShopButton.layer.cornerRadius = 15
+        cell.ShopButton.configuration?.cornerStyle = .capsule
+        cell.ShopButton.layer.masksToBounds = true
+        
+        cell.CancelButton.layer.cornerRadius = 15
+        cell.CancelButton.configuration?.cornerStyle = .capsule
+        cell.CancelButton.layer.masksToBounds = true
+
         return cell
     }
     
@@ -46,9 +55,9 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if BookingHome == true {
-            BookingHome = false
-        }
+//        if BookingHome == true {
+//            BookingHome = false
+//        }
         BookingTable.reloadData()
     }
 
@@ -72,7 +81,15 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let ShopPage = storyboard?.instantiateViewController(withIdentifier: "OurShop") as! OurShopPage
         
         let shop = booking.car.location
-        ShopPage.shop = shop
+        let shoploc = ["Shop 1 - Central Bangkok","Shop 2 - Samut Prakan","Shop 3 - Ekkamai"]
+        if shop == "shop 1"{
+            ShopPage.shop = shoploc[0]
+        } else if shop == "shop 2"{
+            ShopPage.shop = shoploc[1]
+        } else if shop == "shop 3"{
+            ShopPage.shop = shoploc[2]
+        }
+        
         navigationController?.pushViewController(ShopPage, animated: true)
     }
 }

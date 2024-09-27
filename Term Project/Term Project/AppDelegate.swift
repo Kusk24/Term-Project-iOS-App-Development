@@ -13,7 +13,6 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Request notification permissions
         
         // Set the delegate for UNUserNotificationCenter
         UNUserNotificationCenter.current().delegate = self
@@ -29,31 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Error fetching cars: \(error)")
             }
         }
-        
-        // Alamofire request as a "static block"
-//        let url = "https://mocki.io/v1/a5ea996a-042f-418f-8cdb-0bac9954417f"
-//        //let url = "https://mocki.io/v1/efb6b91b-ae74-4a1a-b2d7-ade81f9d3b8f"
-//        AF.request(url).responseDecodable(of: CarsResponse.self) { data in
-//            switch data.result {
-//            case .success(let carResponse):
-//                cars = carResponse.cars
-//                print("Cars loaded:", cars)
-//            case .failure(let error):
-//                print("Failed to load cars:", error)
-//            }
-//        }
-        
-//        CarViewModel.shared.fetchCars { result in
-//            switch result {
-//            case .success(let mycars):
-//                // Successfully fetched the cars, handle the data
-//                cars = mycars
-//                print("Fetched \(cars.count) cars.")
-//            case .failure(let error):
-//                // Handle error
-//                print("Error fetching cars: \(error.localizedDescription)")
-//            }
-//        }
+    
 
         return true
     }

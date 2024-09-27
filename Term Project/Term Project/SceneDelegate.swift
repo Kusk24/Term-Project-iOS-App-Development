@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Handle the quick action if the app was launched by one
         if let shortcutItem = connectionOptions.shortcutItem {
-            handleQuickAction(shortcutItem: shortcutItem)
+            let _ = handleQuickAction(shortcutItem: shortcutItem) 
         }
     }
 
@@ -72,45 +72,124 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UIApplication.shared.shortcutItems = [searchAction, favoritesAction, bookingAction]
     }
 
+//    func navigateToSearchPage() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+//        
+//        if let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage {
+//            if let navigationController = window?.rootViewController as? UINavigationController {
+//                navigationController.pushViewController(searchVC, animated: true)
+//            } else {
+//                window?.rootViewController?.present(searchVC, animated: true, completion: nil)
+//            }
+//        } else {
+//            print("Error: Could not instantiate SearchPage from Main storyboard")
+//        }
+//    }
+//
+//    func navigateToFavoritesPage() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+//        
+//        if let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage {
+//            if let navigationController = window?.rootViewController as? UINavigationController {
+//                navigationController.pushViewController(favoritesVC, animated: true)
+//            } else {
+//                window?.rootViewController?.present(favoritesVC, animated: true, completion: nil)
+//            }
+//        } else {
+//            print("Error: Could not instantiate FavoritePage from Main storyboard")
+//        }
+//    }
+//    
+//    func navigateToBookingPage() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+//        
+//        if let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage {
+//            if let navigationController = window?.rootViewController as? UINavigationController {
+//                navigationController.pushViewController(bookingVC, animated: true)
+//            } else {
+//                window?.rootViewController?.present(bookingVC, animated: true, completion: nil)
+//            }
+//        } else {
+//            print("Error: Could not instantiate BookingPage from Main storyboard")
+//        }
+//    }
+    
     func navigateToSearchPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage {
-            if let navigationController = window?.rootViewController as? UINavigationController {
+        guard let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage else {
+            print("Error: Could not instantiate SearchPage from Main storyboard")
+            return
+        }
+        
+        // Correctly access the key window for iOS 13 and above
+        if let rootVC = getRootViewController() {
+            if let navigationController = rootVC as? UINavigationController {
                 navigationController.pushViewController(searchVC, animated: true)
             } else {
-                window?.rootViewController?.present(searchVC, animated: true, completion: nil)
+                // Present the SearchPage if no navigation controller is found
+                rootVC.present(searchVC, animated: true, completion: nil)
             }
-        } else {
-            print("Error: Could not instantiate SearchPage from Main storyboard")
         }
     }
 
     func navigateToFavoritesPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage {
-            if let navigationController = window?.rootViewController as? UINavigationController {
+        guard let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage else {
+            print("Error: Could not instantiate FavoritePage from Main storyboard")
+            return
+        }
+        
+        if let rootVC = getRootViewController() {
+            if let navigationController = rootVC as? UINavigationController {
                 navigationController.pushViewController(favoritesVC, animated: true)
             } else {
-                window?.rootViewController?.present(favoritesVC, animated: true, completion: nil)
+                rootVC.present(favoritesVC, animated: true, completion: nil)
             }
+        }
+    }
+
+    func navigateToBookingPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage else {
+            print("Error: Could not instantiate BookingPage from Main storyboard")
+            return
+        }
+        
+        if let rootVC = getRootViewController() {
+            if let navigationController = rootVC as? UINavigationController {
+                navigationController.pushViewController(bookingVC, animated: true)
+            } else {
+                rootVC.present(bookingVC, animated: true, completion: nil)
+            }
+        }
+    }
+
+    // Helper function to get the root view controller safely
+    func getRootViewController() -> UIViewController? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }?.rootViewController
         } else {
-            print("Error: Could not instantiate FavoritePage from Main storyboard")
+            return UIApplication.shared.keyWindow?.rootViewController
         }
     }
     
-    func navigateToBookingPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
-        
-        if let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage {
-            if let navigationController = window?.rootViewController as? UINavigationController {
-                navigationController.pushViewController(bookingVC, animated: true)
-            } else {
-                window?.rootViewController?.present(bookingVC, animated: true, completion: nil)
-            }
-        } else {
-            print("Error: Could not instantiate BookingPage from Main storyboard")
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        // Check if any quick action needs to be handled when the app becomes active
+        if SearchHome {
+            navigateToSearchPage()
+            SearchHome = false // Reset after handling
+        } else if FavoriteHome {
+            navigateToFavoritesPage()
+            FavoriteHome = false
+        } else if BookingHome {
+            navigateToBookingPage()
+            BookingHome = false
         }
     }
 

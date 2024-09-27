@@ -14,7 +14,9 @@ class CarViewModel {
     static let shared = CarViewModel()
 //    let url = "https://mocki.io/v1/38f2fe3a-2ecc-45ad-88fd-405ade9a68da"
 //   let url = "https://mocki.io/v1/89331fe5-1826-4829-a5c7-7c4fadcc9b3d"
-    let url = "https://mocki.io/v1/38f2fe3a-2ecc-45ad-88fd-405ade9a68da"
+//    let url = "https://mocki.io/v1/38f2fe3a-2ecc-45ad-88fd-405ade9a68da"
+    let url = "https://mocki.io/v1/555d59ee-6a1b-4b86-9149-524922b77655"
+    
     
     func fetchCarsData(completion: @escaping (Result<[Car], Error>) -> Void) {
         AF.request(url).responseData { response in

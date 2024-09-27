@@ -36,11 +36,8 @@ class BuyingCellThree: UITableViewCell, UICollectionViewDataSource, UICollection
         "SUV",
         "Hatchback",
         "Coupe",
-        "Convertible",
         "Pickup",
         "Minivan",
-        "EV",
-        "Hybrid",
     ]
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -39,6 +39,12 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         
         // Set title for the navigation bar (optional)
         self.title = "Our Shops"
+        
+        if let shop = shop, let shopInfo = shopDetails[shop] {
+            locateShop(shopInfo: shopInfo)
+            self.shop = nil // Clear the temporary shop value
+        }
+    
     }
 
     // Set up the map view below the navigation bar
@@ -83,7 +89,15 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
 
     // Check Location Authorization
     func checkLocationAuthorization() {
-        switch CLLocationManager.authorizationStatus() {
+        let authorizationStatus: CLAuthorizationStatus
+
+        if #available(iOS 14.0, *) {
+            authorizationStatus = locationManager.authorizationStatus
+        } else {
+            authorizationStatus = CLLocationManager.authorizationStatus()
+        }
+
+        switch authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             mapView.showsUserLocation = true
         case .denied, .restricted:
@@ -242,6 +256,17 @@ class OurShopPage: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         region.span.longitudeDelta *= 2.0
         UIView.animate(withDuration: 0.5) {
             self.mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    func locateShop(shopInfo: ShopInfo) {
+        // Find the coordinates based on shop title
+        let annotations = mapView.annotations.filter { $0.title == shopInfo.title }
+        
+        if let annotation = annotations.first {
+            let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+            mapView.setRegion(region, animated: true)
+            mapView.selectAnnotation(annotation, animated: true) // Optionally open callout
         }
     }
 }
