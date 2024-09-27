@@ -181,13 +181,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Check if any quick action needs to be handled when the app becomes active
-        if SearchHome {
+        if SearchHome && CurrentUserViewModel.shared.loadCurrentUser().isLoggedIn {
             navigateToSearchPage()
             SearchHome = false // Reset after handling
-        } else if FavoriteHome {
+        } else if FavoriteHome && CurrentUserViewModel.shared.loadCurrentUser().isLoggedIn {
             navigateToFavoritesPage()
             FavoriteHome = false
-        } else if BookingHome {
+        } else if BookingHome && CurrentUserViewModel.shared.loadCurrentUser().isLoggedIn{
             navigateToBookingPage()
             BookingHome = false
         }
