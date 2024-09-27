@@ -36,6 +36,9 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         cell.CancelButton.layer.cornerRadius = 15
         cell.CancelButton.configuration?.cornerStyle = .capsule
         cell.CancelButton.layer.masksToBounds = true
+        
+        cell.Myimages.layer.cornerRadius = 10 // Adjust as needed
+        cell.Myimages.layer.masksToBounds = true
 
         return cell
     }
@@ -67,9 +70,25 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         if i < bookings.count {  // Ensure index is valid
             let booking = bookings[i]
-            BookingViewModel.shared.removeBooking(bookingID: booking.id, username: Username)
-            print("Booking cancelled for ID: \(booking.id)")
-            BookingTable.reloadData()  // Reload data after cancelling
+            
+            // Create an alert controller
+            let alert = UIAlertController(title: "Confirm Returned",
+                                          message: "Are you sure you've returned the car? You will be fined according to company policy if you haven't",
+                                          preferredStyle: .alert)
+
+            // Add Cancel action
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            // Add Confirm action
+            alert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { _ in
+                BookingViewModel.shared.removeBooking(bookingID: booking.id, username: self.Username)
+                print("Booking cancelled for ID: \(booking.id)")
+                self.BookingTable.reloadData()  // Reload data after cancelling
+            }))
+            
+            // Present the alert
+            self.present(alert, animated: true, completion: nil)
+            
         } else {
             print("Invalid index for cancel action: \(i)")
         }

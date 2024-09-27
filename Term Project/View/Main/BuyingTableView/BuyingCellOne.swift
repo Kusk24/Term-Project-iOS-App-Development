@@ -16,7 +16,6 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         // Initialization code
         collectionView.dataSource = self
         collectionView.delegate = self
-        
 //        contentView.layer.shadowColor = UIColor.black.cgColor
 //        contentView.layer.shadowOpacity = 0.3
 //        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -59,9 +58,7 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         if let viewController = self.findViewController() {
             let Detail = viewController.storyboard?.instantiateViewController(withIdentifier: "Detail") as! DetailPage
             let i = indexPath.row
-            print("i =" , i)
             let id = CarViewModel.shared.getCarList()[i].id
-            print("id =" , id)
             Detail.mycar = CarViewModel.shared.getCar(at: id)
             viewController.navigationController?.pushViewController(Detail, animated: true)
         }

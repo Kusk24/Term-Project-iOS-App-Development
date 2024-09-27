@@ -551,7 +551,7 @@
 				DEVELOPMENT_TEAM = 7VPG2W6HDB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Term Project/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MotoMart;
+				INFOPLIST_KEY_CFBundleDisplayName = MotoRent;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock private features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -581,7 +581,7 @@
 				DEVELOPMENT_TEAM = 7VPG2W6HDB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Term Project/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MotoMart;
+				INFOPLIST_KEY_CFBundleDisplayName = MotoRent;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock private features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

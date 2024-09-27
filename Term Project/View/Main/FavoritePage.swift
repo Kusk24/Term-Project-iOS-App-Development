@@ -25,6 +25,8 @@ class FavoritePage: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.Myimage.sd_setImage(with: URL(string: CarViewModel.shared.getCarImage(id: id) ?? ""))
         cell.FavoriteButton.tag = i
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
+        cell.Myimage.layer.cornerRadius = 10 // Adjust as needed
+        cell.Myimage.layer.masksToBounds = true
         
         return cell
     }

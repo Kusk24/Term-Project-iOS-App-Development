@@ -66,6 +66,8 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         checkFavorite(myButton: cell.FavoriteButton, id: id, username: CurrentUserViewModel.shared.loadCurrentUser().username ?? "")
         cell.FavoriteButton.tag = indexPath.item
         cell.FavoriteButton.addTarget(self, action: #selector(FavoriteButtonTapped(_:)), for: .touchUpInside)
+        cell.Myimage.layer.cornerRadius = 10 // Adjust as needed
+        cell.Myimage.layer.masksToBounds = true
         
         return cell
     }
