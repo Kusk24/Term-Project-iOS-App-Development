@@ -9,7 +9,7 @@ import UIKit
 
 class BuyingCellTwo: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return CarViewModel.shared.getCarList().prefix(5).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

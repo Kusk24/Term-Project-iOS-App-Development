@@ -14,6 +14,7 @@ class ChangePage: UIViewController {
     @IBOutlet weak var EnterChange: UILabel!
     @IBOutlet weak var NewKeyword: UITextField!
     @IBOutlet weak var ConfirmedNewKeyword: UITextField!
+    @IBOutlet weak var ConfirmButton: UIButton!
     
     let userViewModel = UserViewModel(keychainService: KeychainService(service: "com.612054.Term-Project"))
     let Username = CurrentUserViewModel.shared.loadCurrentUser().username!
@@ -24,6 +25,8 @@ class ChangePage: UIViewController {
         EnterChange.text = "Please enter new \(keyword ?? "")"
         NewKeyword.placeholder = "New \(keyword ?? "")"
         ConfirmedNewKeyword.placeholder = "Confirm New \(keyword ?? "")"
+        ConfirmButton.layer.cornerRadius = 15
+        ConfirmButton.configuration?.cornerStyle = .capsule
         // Do any additional setup after loading the view.
     }
     
