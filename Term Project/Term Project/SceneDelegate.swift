@@ -71,112 +71,49 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UIApplication.shared.shortcutItems = [searchAction, favoritesAction, bookingAction]
     }
-
-//    func navigateToSearchPage() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
-//        
-//        if let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage {
-//            if let navigationController = window?.rootViewController as? UINavigationController {
-//                navigationController.pushViewController(searchVC, animated: true)
-//            } else {
-//                window?.rootViewController?.present(searchVC, animated: true, completion: nil)
-//            }
-//        } else {
-//            print("Error: Could not instantiate SearchPage from Main storyboard")
-//        }
-//    }
-//
-//    func navigateToFavoritesPage() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
-//        
-//        if let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage {
-//            if let navigationController = window?.rootViewController as? UINavigationController {
-//                navigationController.pushViewController(favoritesVC, animated: true)
-//            } else {
-//                window?.rootViewController?.present(favoritesVC, animated: true, completion: nil)
-//            }
-//        } else {
-//            print("Error: Could not instantiate FavoritePage from Main storyboard")
-//        }
-//    }
-//    
-//    func navigateToBookingPage() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Enter storyboard name
-//        
-//        if let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage {
-//            if let navigationController = window?.rootViewController as? UINavigationController {
-//                navigationController.pushViewController(bookingVC, animated: true)
-//            } else {
-//                window?.rootViewController?.present(bookingVC, animated: true, completion: nil)
-//            }
-//        } else {
-//            print("Error: Could not instantiate BookingPage from Main storyboard")
-//        }
-//    }
     
     func navigateToSearchPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        guard let searchVC = storyboard.instantiateViewController(withIdentifier: "Search") as? SearchPage else {
-            print("Error: Could not instantiate SearchPage from Main storyboard")
-            return
-        }
-        
-        // Correctly access the key window for iOS 13 and above
-        if let rootVC = getRootViewController() {
-            if let navigationController = rootVC as? UINavigationController {
-                navigationController.pushViewController(searchVC, animated: true)
-            } else {
-                // Present the SearchPage if no navigation controller is found
-                rootVC.present(searchVC, animated: true, completion: nil)
-            }
+        if let tabBarController = getTabBarController() {
+            tabBarController.selectedIndex = 1 // Assuming the Search Page is at index 1
+        } else {
+            print("Error: Could not find TabBarController")
         }
     }
 
     func navigateToFavoritesPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        guard let favoritesVC = storyboard.instantiateViewController(withIdentifier: "Favorite") as? FavoritePage else {
-            print("Error: Could not instantiate FavoritePage from Main storyboard")
-            return
-        }
-        
-        if let rootVC = getRootViewController() {
-            if let navigationController = rootVC as? UINavigationController {
-                navigationController.pushViewController(favoritesVC, animated: true)
-            } else {
-                rootVC.present(favoritesVC, animated: true, completion: nil)
-            }
+        if let tabBarController = getTabBarController() {
+            tabBarController.selectedIndex = 3 // Assuming the Favorites Page is at index 3
+        } else {
+            print("Error: Could not find TabBarController")
         }
     }
 
     func navigateToBookingPage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        guard let bookingVC = storyboard.instantiateViewController(withIdentifier: "Booking") as? BookingPage else {
-            print("Error: Could not instantiate BookingPage from Main storyboard")
-            return
-        }
-        
-        if let rootVC = getRootViewController() {
-            if let navigationController = rootVC as? UINavigationController {
-                navigationController.pushViewController(bookingVC, animated: true)
-            } else {
-                rootVC.present(bookingVC, animated: true, completion: nil)
-            }
+        if let tabBarController = getTabBarController() {
+            tabBarController.selectedIndex = 2 // Assuming the Booking Page is at index 2
+        } else {
+            print("Error: Could not find TabBarController")
         }
     }
 
-    // Helper function to get the root view controller safely
-    func getRootViewController() -> UIViewController? {
-        if #available(iOS 13.0, *) {
-            return UIApplication.shared.connectedScenes
-                .compactMap { $0 as? UIWindowScene }
-                .flatMap { $0.windows }
-                .first { $0.isKeyWindow }?.rootViewController
-        } else {
-            return UIApplication.shared.keyWindow?.rootViewController
+    func getTabBarController() -> UITabBarController? {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let rootViewController = windowScene.windows.first?.rootViewController {
+                return findTabBarController(from: rootViewController)
+            }
         }
+        return nil
+    }
+
+    func findTabBarController(from viewController: UIViewController) -> UITabBarController? {
+        if let tabBarController = viewController as? UITabBarController {
+            return tabBarController
+        } else if let navigationController = viewController as? UINavigationController {
+            return findTabBarController(from: navigationController.visibleViewController ?? navigationController)
+        } else if let presentedViewController = viewController.presentedViewController {
+            return findTabBarController(from: presentedViewController)
+        }
+        return nil
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {

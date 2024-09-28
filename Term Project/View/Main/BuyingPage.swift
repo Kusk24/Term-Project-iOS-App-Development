@@ -25,24 +25,6 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         BuyingTable.reloadData()
         
-        if FavoriteHome == true{
-            let Favorite = storyboard?.instantiateViewController(withIdentifier: "Favorite") as! FavoritePage
-            navigationController?.pushViewController(Favorite, animated: true)
-//            Favorite.modalPresentationStyle = .popover
-//            present(Favorite, animated: true)
-        } else if BookingHome == true {
-            let Booking = storyboard?.instantiateViewController(withIdentifier: "Booking") as! BookingPage
-            navigationController?.pushViewController(Booking, animated: true)
-//            Booking.modalPresentationStyle = .popover
-//            present(Booking, animated: true)
-        } else if SearchHome == true {
-            let Search = storyboard?.instantiateViewController(withIdentifier: "Search") as! SearchPage
-            navigationController?.pushViewController(Search, animated: true)
-//            Search.modalPresentationStyle = .popover
-//            present(Search, animated: true)
-        }
-            
-        
     }
     
     
