@@ -26,7 +26,6 @@ class CarViewModel {
                     // Decode the data
                     let decoder = JSONDecoder()
                     let carList = try decoder.decode(CarsResponse.self, from: data)
-                    print(carList.cars.count)
                     CarModel.shared.loadCars(loadedCars: carList.cars)
                     // Return the car list via completion handler
                     completion(.success(carList.cars))
