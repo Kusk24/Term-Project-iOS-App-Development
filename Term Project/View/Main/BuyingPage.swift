@@ -23,10 +23,18 @@ class BuyingPage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        BuyingTable.reloadData()
-        
+        reloadTableData()
     }
     
+    func reloadTableData() {
+        DispatchQueue.main.async {
+            if self.isViewLoaded {
+                self.BuyingTable.reloadData()
+            } else {
+                print("View is not loaded yet, cannot reload data.")
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3

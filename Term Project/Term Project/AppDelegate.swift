@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         CarViewModel.shared.fetchCarsData{ result in
             switch result {
             case .success(let mycars):
-//                CarData.cars = mycars
                 if mycars.isEmpty {
                     print("Failed to fatch, array count of cars = 0")
                 }

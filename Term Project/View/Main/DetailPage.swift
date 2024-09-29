@@ -21,6 +21,7 @@ class DetailPage: UIViewController {
     @IBOutlet weak var bookingDays: UITextField!
     @IBOutlet weak var TotalPrice: UILabel!
     @IBOutlet weak var mystackview: UIStackView!
+    @IBOutlet weak var BookingButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,10 @@ class DetailPage: UIViewController {
         Myimages.layer.masksToBounds = true // Clip the image to the rounded corners
         Myimages.layer.borderColor = UIColor.black.cgColor // Border color
         Myimages.layer.borderWidth = 2 // Border width
+        
+        BookingButton.layer.cornerRadius = 15
+        BookingButton.configuration?.cornerStyle = .capsule
+        BookingButton.layer.masksToBounds = true
         
         mystackview.backgroundColor = UIColor(white: 0.9, alpha: 0.7)
         

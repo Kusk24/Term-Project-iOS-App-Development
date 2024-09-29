@@ -16,13 +16,6 @@ class BuyingCellOne: UITableViewCell, UICollectionViewDataSource, UICollectionVi
         // Initialization code
         collectionView.dataSource = self
         collectionView.delegate = self
-//        contentView.layer.shadowColor = UIColor.black.cgColor
-//        contentView.layer.shadowOpacity = 0.3
-//        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        contentView.layer.shadowRadius = 4
-//
-//        // Ensure the shadow is applied correctly
-//        contentView.layer.masksToBounds = false
     }
     
 

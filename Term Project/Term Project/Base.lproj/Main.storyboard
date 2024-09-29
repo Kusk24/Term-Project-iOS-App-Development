@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="hGR-8F-Avu">
-                                <rect key="frame" x="16" y="266.66666666666663" width="370" height="340.66666666666663"/>
+                                <rect key="frame" x="16" y="264" width="370" height="346.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fNm-c0-Rae">
                                         <rect key="frame" x="49.666666666666657" y="0.0" width="270.66666666666674" height="70.333333333333329"/>
@@ -261,10 +261,10 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-ek-tLn">
-                                        <rect key="frame" x="87.666666666666686" y="306.33333333333331" width="195" height="34.333333333333314"/>
+                                        <rect key="frame" x="87.666666666666686" y="306.33333333333337" width="195" height="40"/>
                                         <color key="backgroundColor" name="ThisAppColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34.333333333333314" id="cia-Nb-wHA"/>
+                                            <constraint firstAttribute="height" constant="40" id="cia-Nb-wHA"/>
                                             <constraint firstAttribute="width" constant="195" id="dY9-99-G1R"/>
                                         </constraints>
                                         <color key="tintColor" red="0.98823529480000005" green="0.98823529480000005" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1325,6 +1325,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BookingButton" destination="t46-LG-bNh" id="4QD-S0-vwg"/>
                         <outlet property="Brand" destination="CNY-l4-uC0" id="ROg-JC-jrz"/>
                         <outlet property="Model" destination="Eug-qn-KrF" id="whM-hf-lUW"/>
                         <outlet property="Myimages" destination="b8a-ev-dYT" id="prb-1S-J9a"/>
@@ -1479,37 +1480,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="86" translatesAutoresizingMaskIntoConstraints="NO" id="hnJ-bS-O8W">
-                                <rect key="frame" x="57" y="366.66666666666669" width="288.33333333333331" height="140.66666666666669"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click Below to see how to use our app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-Gy-q3X">
-                                        <rect key="frame" x="0.0" y="0.0" width="288.33333333333331" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifJ-wx-sHD">
-                                        <rect key="frame" x="83.666666666666657" y="106.33333333333331" width="120.66666666666666" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Watch Video"/>
-                                        <connections>
-                                            <action selector="WatchButtonClicked:" destination="YuW-a0-ngm" eventType="touchUpInside" id="8GB-bM-EOx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uPi-1C-2gd">
+                                <rect key="frame" x="16" y="102" width="370" height="270"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="4mP-Jh-4bY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click Above to see how to use our app. This is guide to our app, There you can see how to use step by step" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-Gy-q3X">
+                                <rect key="frame" x="16" y="524.66666666666663" width="370" height="64.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MYS-yD-WnQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hnJ-bS-O8W" firstAttribute="centerX" secondItem="ktK-OT-fQd" secondAttribute="centerX" id="O2Y-ph-nqb"/>
-                            <constraint firstItem="hnJ-bS-O8W" firstAttribute="centerY" secondItem="ktK-OT-fQd" secondAttribute="centerY" id="aHv-ii-Sd4"/>
+                            <constraint firstItem="ahE-Gy-q3X" firstAttribute="centerX" secondItem="ktK-OT-fQd" secondAttribute="centerX" id="W6T-Xv-zyK"/>
+                            <constraint firstItem="MYS-yD-WnQ" firstAttribute="trailing" secondItem="ahE-Gy-q3X" secondAttribute="trailing" constant="16" id="Wbk-Zv-6ca"/>
+                            <constraint firstItem="ahE-Gy-q3X" firstAttribute="leading" secondItem="MYS-yD-WnQ" secondAttribute="leading" constant="16" id="ims-ge-r5V"/>
+                            <constraint firstItem="uPi-1C-2gd" firstAttribute="top" secondItem="MYS-yD-WnQ" secondAttribute="top" constant="40" id="jwj-rV-smr"/>
+                            <constraint firstItem="ahE-Gy-q3X" firstAttribute="centerY" secondItem="ktK-OT-fQd" secondAttribute="centerY" constant="120" id="qOX-co-F6Z"/>
+                            <constraint firstItem="uPi-1C-2gd" firstAttribute="leading" secondItem="MYS-yD-WnQ" secondAttribute="leading" constant="16" id="suB-ny-7uN"/>
+                            <constraint firstItem="MYS-yD-WnQ" firstAttribute="trailing" secondItem="uPi-1C-2gd" secondAttribute="trailing" constant="16" id="y6p-7i-5hs"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Guide to Our App" image="exclamationmark.bubble.fill" catalog="system" id="gTJ-Qr-gZA">
                         <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Support" id="nIA-fx-Iia"/>
+                    <connections>
+                        <outlet property="videoThumbnailView" destination="uPi-1C-2gd" id="AvE-O7-T2u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8v-Wc-Fc7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

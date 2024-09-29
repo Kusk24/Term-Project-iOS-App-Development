@@ -8,8 +8,6 @@
 import UIKit
 
 class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,9 +31,6 @@ class SearchPage: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if SearchHome == true {
-//            SearchHome = false
-//        }
         tableView.reloadData()
     }
     

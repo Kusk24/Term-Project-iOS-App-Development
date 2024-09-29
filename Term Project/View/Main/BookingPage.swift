@@ -58,9 +58,6 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if BookingHome == true {
-//            BookingHome = false
-//        }
         BookingTable.reloadData()
     }
 
@@ -71,7 +68,6 @@ class BookingPage: UIViewController, UITableViewDataSource, UITableViewDelegate 
         if i < bookings.count {  // Ensure index is valid
             let booking = bookings[i]
             
-            // Create an alert controller
             let alert = UIAlertController(title: "Confirm Returned",
                                           message: "Are you sure you've returned the car? You will be fined according to company policy if you haven't",
                                           preferredStyle: .alert)
